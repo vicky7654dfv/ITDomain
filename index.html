@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Services Domain</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        // Load global theme before page renders to prevent flashing
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="./assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="./assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link active-nav">Home</a>
+                <a href="./pages/about.html" class="nav-link">About Us</a>
+                <a href="./pages/services.html" class="nav-link">Services</a>
+                <a href="./pages/blog.html" class="nav-link">Blog</a>
+                <a href="./pages/contact.html" class="nav-link">Contact</a>
+                <a href="./pages/signup.html" class="nav-link">Sign Up</a>
+                <a href="./pages/login.html" class="btn-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button class="hamburger-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="hamburger-overlay">
+        <div class="hamburger-menu">
+            <button class="hamburger-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+            <div class="hamburger-header">
+                <h2>Navigation Menu</h2>
+                <div class="hamburger-line"></div>
+            </div>
+            <nav class="mobile-nav">
+                <a href="index.html" class="nav-link active-nav">Home</a>
+                <a href="./pages/about.html" class="nav-link">About Us</a>
+                <a href="./pages/services.html" class="nav-link">Services</a>
+                <a href="./pages/blog.html" class="nav-link">Blog</a>
+                <a href="./pages/contact.html" class="nav-link">Contact</a>
+                <a href="./pages/signup.html" class="nav-link">Sign Up</a>
+                <!-- Mobile login matching desktop login -->
+                <a href="./pages/login.html" class="btn-login mobile-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch mobile-theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero -->
+    <section class="hero-section" id="hero">
+        <div class="video-container">
+            <video autoplay muted loop playsinline class="bg-video">
+                <source src="./assets/Home/heroBg.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Empowering Your Digital Transformation</h1>
+            <p class="hero-subtitle">We build resilient infrastructure and cutting-edge software solutions tailored for the modern enterprise. Scale dynamically and secure your data seamlessly.</p>
+            <div class="hero-buttons">
+                <a href="./pages/error.html" class="btn btn-primary">Get Started</a>
+                <a href="./pages/error.html" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+        
+        <div class="hero-train">
+            <div class="train-track">
+                <span>INNOVATION</span> • <span>SECURITY</span> • <span>CLOUD SOLUTIONS</span> • <span>AI INTEGRATION</span> • <span>WEB DEVELOPMENT</span> • <span>DATA ANALYTICS</span> • 
+                <span>INNOVATION</span> • <span>SECURITY</span> • <span>CLOUD SOLUTIONS</span> • <span>AI INTEGRATION</span> • <span>WEB DEVELOPMENT</span> • <span>DATA ANALYTICS</span>
+            </div>
+        </div>
+
+        <div class="custom-shape-divider-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 L150,100 L300,0 L450,100 L600,0 L750,100 L900,0 L1050,100 L1200,0 L1200,120 L0,120 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 2: Responsive Design -->
+    <section class="section responsive-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Seamless Responsive Experience</h1>
+                <p>Ensuring your platforms look stunning and perform flawlessly across all screen sizes. From mobile to ultrawide displays, we engineer dynamic, pixel-perfect user interfaces that adapt to any device.</p>
+            </div>
+            <div class="responsive-bg-layer">
+                <div class="responsive-image-box">
+                    <div class="overlay-text">
+                        <h2>04 — RESPONSIVE DESIGN</h2>
+                        <a href="./pages/error.html" class="btn btn-primary">View Showcase</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Features -->
+    <section class="section features-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Our Core Features</h1>
+                <p>Discover our comprehensive range of IT capabilities. Filter by category or search below to quickly find tailored technology solutions for your organizational needs.</p>
+            </div>
+            
+            <div class="features-controls">
+                <input type="text" id="featureSearch" placeholder="Search features..." class="search-input">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="cloud">Cloud</button>
+                    <button class="filter-btn" data-filter="security">Security</button>
+                    <button class="filter-btn" data-filter="data">Data</button>
+                </div>
+            </div>
+
+            <div class="features-grid" id="featuresGrid">
+                <!-- Feature 1 -->
+                <div class="feature-box" data-category="cloud">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/1.webp" alt="Cloud" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Unlock seamless cloud migrations, highly scalable infrastructure, and hybrid deployments.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Cloud Computing</h3>
+                        <p>Reliable and lightning-quick architecture.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-box" data-category="security">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/2.webp" alt="Security" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Implement robust cybersecurity protocols to protect your sensitive data natively.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Cybersecurity</h3>
+                        <p>Military-level security standards.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-box" data-category="data">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/3.webp" alt="Data" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Advanced BI and analytics for comprehensive data-driven decision making.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Data Analytics</h3>
+                        <p>Powerful insights at your fingertips.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-box" data-category="cloud">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/4.webp" alt="SaaS" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Custom Software as a Service development engineered for modern global use cases.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Enterprise SaaS</h3>
+                        <p>Automate your workflow platforms.</p>
+                    </div>
+                </div>
+                <!-- Feature 5 -->
+                <div class="feature-box" data-category="security">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/5.webp" alt="Compliance" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Ensure strict compliance with global data standards, GDPR, HIPAA, and ISO regulations.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Compliance Audits</h3>
+                        <p>Remain secure without compromises.</p>
+                    </div>
+                </div>
+                <!-- Feature 6 -->
+                <div class="feature-box" data-category="data">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/6.webp" alt="AI Insights" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Utilize predictive analytics using machine learning to forecast trends.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>AI Insights</h3>
+                        <p>Machine Learning optimizations.</p>
+                    </div>
+                </div>
+                <!-- Feature 7 -->
+                <div class="feature-box" data-category="cloud">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/7.webp" alt="DevOps" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Streamlined CI/CD build operations and fully automated deployment strategies.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>DevOps Pipelines</h3>
+                        <p>Faster cycles, fewer disruptions.</p>
+                    </div>
+                </div>
+                <!-- Feature 8 -->
+                <div class="feature-box" data-category="security">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/8.webp" alt="Pentesting" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>We actively identify vulnerabilities inside your infrastructure before attackers do.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Penetration Testing</h3>
+                        <p>Finding the flaws proactively.</p>
+                    </div>
+                </div>
+                <!-- Feature 9 -->
+                <div class="feature-box" data-category="data">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/9.webp" alt="Big Data" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Managing and processing massive enterprise data sets effectively without bottlenecks.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>Big Data Processing</h3>
+                        <p>Handling volume cleanly.</p>
+                    </div>
+                </div>
+                <!-- Feature 10 -->
+                <div class="feature-box" data-category="cloud">
+                    <div class="feature-img-wrapper">
+                        <img src="./assets/Home/Grid/10.webp" alt="Migration" class="feature-img">
+                        <div class="feature-hover-content">
+                            <p>Zero-downtime database and system migrations across legacy infrastructures.</p>
+                            <a href="./pages/error.html" class="btn btn-primary">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="feature-info">
+                        <h3>System Migrations</h3>
+                        <p>Moving data safely and swiftly.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p id="no-matches-msg" style="display: none; text-align: center; color: var(--primary); font-size: 1.2rem; width: 100%; margin-top: 20px;">No matches found.</p>
+
+            <div class="stats-wrapper">
+                <div class="stat-item">
+                    <h2 class="counter" data-target="250">0</h2>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="50">0</h2>
+                    <p>IT Experts</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="99">0</h2>
+                    <p>Client Satisfaction (%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: AI Implementation -->
+    <section class="section ai-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>AI Implementation in Depth</h1>
+                <p>Unlock the power of Artificial Intelligence. We integrate cutting-edge models seamlessly into your workflows to maximize logic, efficiency, and scale at a fraction of standard operational costs.</p>
+            </div>
+            
+            <div class="ai-content-wrap">
+                <div class="ai-image-block">
+                    <img src="./assets/Home/side1.webp" alt="AI Abstract 1" class="ai-img main-img">
+                    <img src="./assets/Home/side2.webp" alt="AI Abstract 2" class="ai-img overlap-img">
+                </div>
+                <div class="ai-text-block">
+                    <h2>Next-Gen Cognitive Services</h2>
+                    <p>Transform raw data into actionable intelligence directly through specialized ML algorithms. Our expert team engineers custom LLMs, NLP modules, and advanced computer vision systems tailored to solve exact business blockers.</p>
+                    <p>Whether you require predictive supply chain tools or automated customer service bots, our AI division builds robust and deeply integrated capabilities that constantly evolve and learn alongside your business metrics.</p>
+                    <div class="btn-group-ai">
+                        <a href="./pages/error.html" class="btn btn-primary">View Case Studies</a>
+                        <a href="./pages/error.html" class="btn btn-outline">Explore Solutions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: App & Website Deployment -->
+    <section class="section deployment-section fade-element">
+        <div class="running-text-bg front">
+            <span>DEPLOY • SCALE • OPTIMIZE • DEPLOY • SCALE • OPTIMIZE •</span>
+        </div>
+        <div class="container section-container deployment-content">
+            <div class="section-header">
+                <h1>App Creation & Web Deployment</h1>
+                <p>We architect resilient web platforms and native applications, deploying them swiftly onto global edge networks for sub-millisecond latency worldwide.</p>
+            </div>
+            
+            <div class="deployment-box">
+                <h2>Continuous Integration & Delivery</h2>
+                <p>Automate your success effortlessly. Our custom deployment pipelines guarantee complete zero-downtime upgrades, instantaneous failovers, and comprehensive live tracking of your most critical digital assets across the web.</p>
+                <div class="btn-group">
+                    <a href="./pages/error.html" class="btn btn-animated">Initiate Build</a>
+                    <a href="./pages/error.html" class="btn btn-animated-alt">System Status</a>
+                </div>
+            </div>
+        </div>
+        <div class="running-text-bg back">
+            <span>SPEED • RELIABILITY • PERFORMANCE • SPEED • RELIABILITY • PERFORMANCE •</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fade-element">
+        <div class="container footer-container">
+            <div class="footer-col col-1">
+                <img src="./assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img footer-logo-img">
+                <p>Delivering critically secure, high-performance digital infrastructure solutions internationally since 2010.</p>
+            </div>
+            
+            <div class="footer-col col-2">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="./pages/signup.html">Sign Up</a></li>
+                    <li><a href="./pages/services.html">Services</a></li>
+                    <li><a href="./pages/contact.html">Contact</a></li>
+                    <li><a href="./pages/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col col-3">
+                <h3>Research</h3>
+                <ul>
+                    <li><a href="./pages/error.html">Quantum Computing</a></li>
+                    <li><a href="./pages/error.html">Machine Learning</a></li>
+                    <li><a href="./pages/error.html">Edge AI</a></li>
+                    <li><a href="./pages/error.html">Zero-Trust Network</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col col-4">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Enter valid email" required>
+                    <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                    <p class="error-msg" id="form-error"></p>
+                </form>
+                <div class="social-block">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="./pages/error.html"><i class="fab fa-twitter"></i></a>
+                        <a href="./pages/error.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="./pages/error.html"><i class="fab fa-github"></i></a>
+                        <a href="./pages/error.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mini Footer -->
+    <div class="mini-footer">
+        <div class="container mini-footer-container">
+            <div class="copyrights">
+                <p>&copy; 2026 IT Domain Services. All rights reserved. Registered ISO-27001 Certified Entity.</p>
+            </div>
+            <div class="mini-footer-links">
+                <a href="./pages/error.html" class="btn btn-sm">Privacy Policy</a>
+                <a href="./pages/error.html" class="btn btn-sm">Terms of Service</a>
+                <a href="./pages/error.html" class="btn btn-sm">Legal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loader Logic
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => { loader.classList.add('hidden'); }, 300);
+            }
+            window.addEventListener('beforeunload', () => { 
+                if (loader) loader.classList.remove('hidden'); 
+            });
+            // Show loader instantly on standard redirect links
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeSwitches = document.querySelectorAll('.theme-switch');
+            const htmlEl = document.documentElement;
+
+            // Sync loaded theme with toggle buttons
+            updateIcons(htmlEl.getAttribute('data-theme'));
+
+            function toggleTheme() {
+                if(htmlEl.getAttribute('data-theme') === 'light') {
+                    htmlEl.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateIcons('dark');
+                } else {
+                    htmlEl.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateIcons('light');
+                }
+            }
+
+            function updateIcons(theme) {
+                themeSwitches.forEach(btn => {
+                    btn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+            }
+            themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+            // Hamburger Menu Logic
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const hamburgerOverlay = document.querySelector('.hamburger-overlay');
+            const hamburgerClose = document.querySelector('.hamburger-close');
+
+            hamburgerBtn.addEventListener('click', () => hamburgerOverlay.classList.add('active'));
+            hamburgerClose.addEventListener('click', () => hamburgerOverlay.classList.remove('active'));
+            hamburgerOverlay.addEventListener('click', (e) => {
+                if(e.target === hamburgerOverlay) hamburgerOverlay.classList.remove('active');
+            });
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations Intersection Observer
+            const fadeElements = document.querySelectorAll('.fade-element');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Number Count Up Observer
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const targetEl = entry.target;
+                        const target = +targetEl.getAttribute('data-target');
+                        const increment = target / (2000 / 16); 
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if(current < target) {
+                                targetEl.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                targetEl.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                        observer.unobserve(targetEl);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // Features Section Filtering & Searching
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const featureBoxes = document.querySelectorAll('.feature-box');
+            const searchInput = document.getElementById('featureSearch');
+
+            function filterFeatures() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const activeCategory = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+                let foundMatches = false;
+
+                featureBoxes.forEach(box => {
+                    const title = box.querySelector('h3').innerText.toLowerCase();
+                    const desc = box.querySelector('.feature-hover-content p').innerText.toLowerCase();
+                    const category = box.getAttribute('data-category');
+                    const matchesSearch = title.includes(searchTerm) || desc.includes(searchTerm);
+                    const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                    
+                    if (matchesSearch && matchesCategory) {
+                        box.style.display = 'block';
+                        foundMatches = true;
+                    } else {
+                        box.style.display = 'none';
+                    }
+                });
+
+                const noMatchesMsg = document.getElementById('no-matches-msg');
+                if (noMatchesMsg) {
+                    noMatchesMsg.style.display = foundMatches ? 'none' : 'block';
+                }
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterFeatures();
+                });
+            });
+            searchInput.addEventListener('keyup', filterFeatures);
+
+            // Form Validation Logic
+            const newsletterForm = document.getElementById('newsletter-form');
+            const emailInput = document.getElementById('emailInput');
+            const formError = document.getElementById('form-error');
+
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = emailInput.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if(!emailRegex.test(email)) {
+                    formError.innerText = "Please enter a valid email address.";
+                    emailInput.style.borderColor = "red";
+                } else {
+                    formError.innerText = "";
+                    emailInput.style.borderColor = "var(--border-color)";
+                    window.location.href = "./pages/error.html";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

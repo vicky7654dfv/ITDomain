@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - System Failure</title>
+    <!-- We inject the main style sheet and our specific error CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/error.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body class="error-page-body">
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <!-- Theme Switch -->
+    <button class="theme-switch" aria-label="Toggle theme" style="position: absolute; top: 30px; right: 40px; z-index: 100; background: transparent; border: 2px solid var(--border-color); color: var(--text-main); font-size: 1.2rem; padding: 8px; border-radius: 50%; cursor: pointer;"><i class="fas fa-moon"></i></button>
+
+    <!-- Static overlay elements for authentic glitch-look -->
+    <div class="glitch-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div class="error-container fade-element visible">
+        <!-- The data-text is critical for pseudo-element duplication! -->
+        <h1 class="glitch" data-text="404">404</h1>
+        <p class="error-msg">SYSTEM_FAILURE: NODE_NOT_LOCATED</p>
+        <div class="error-details">
+            <p>The routing trajectory to [ <span>location: undefined</span> ] encountered critical data loss.</p>
+        </div>
+        <a href="../index.html" class="btn btn-primary return-home-btn">
+            <i class="fas fa-satellite-dish"></i> RETURN TO HOME
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            if (loader) setTimeout(() => { loader.classList.add('hidden'); }, 300);
+            
+            window.addEventListener('beforeunload', () => { 
+                if (loader) loader.classList.remove('hidden'); 
+            });
+            
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeSwitches = document.querySelectorAll('.theme-switch');
+            const htmlEl = document.documentElement;
+
+            function updateIcons(theme) {
+                themeSwitches.forEach(btn => {
+                    btn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+
+            function toggleTheme() {
+                if(htmlEl.getAttribute('data-theme') === 'light') {
+                    htmlEl.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateIcons('dark');
+                } else {
+                    htmlEl.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateIcons('light');
+                }
+            }
+            themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+        });
+    </script>
+</body>
+</html>
