@@ -43,6 +43,12 @@
             const loader = document.getElementById('loader');
             if (loader) setTimeout(() => { loader.classList.add('hidden'); }, 300);
             
+            window.addEventListener('pageshow', (event) => {
+                if (event.persisted && loader) {
+                    loader.classList.add('hidden');
+                }
+            });
+
             window.addEventListener('beforeunload', () => { 
                 if (loader) loader.classList.remove('hidden'); 
             });
