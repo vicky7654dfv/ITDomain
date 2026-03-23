@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - IT Services Domain</title>
+    <meta name="description" content="Explore our comprehensive IT services including cloud solutions, AI integration, cybersecurity, and digital transformation tailored for modern enterprises.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About Us</a>
+                <a href="./services.html" class="nav-link active-nav">Services</a>
+                <a href="./blog.html" class="nav-link">Blog</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+                <a href="./signup.html" class="nav-link">Sign Up</a>
+                <a href="./login.html" class="btn-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button class="hamburger-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="hamburger-overlay">
+        <div class="hamburger-menu">
+            <button class="hamburger-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+            <div class="hamburger-header">
+                <h2>Navigation Menu</h2>
+                <div class="hamburger-line"></div>
+            </div>
+            <nav class="mobile-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About Us</a>
+                <a href="./services.html" class="nav-link active-nav">Services</a>
+                <a href="./blog.html" class="nav-link">Blog</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+                <a href="./signup.html" class="nav-link">Sign Up</a>
+                <a href="./login.html" class="btn-login mobile-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch mobile-theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Section 1: Hero -->
+    <section class="svc-hero-section" id="svc-hero">
+        <div class="svc-hero-carousel" id="svcHeroBg">
+            <div class="svc-hero-slide active" style="background-image: url('../assets/Services/hero2.webp');"></div>
+            <div class="svc-hero-slide" style="background-image: url('../assets/Services/hero1.webp');"></div>
+        </div>
+        <div class="svc-hero-overlay"></div>
+
+        <div class="svc-hero-content">
+            <p class="svc-hero-eyebrow">Services</p>
+            <h1 class="svc-hero-title">What We <span class="svc-title-accent">Build</span> For You</h1>
+            <p class="svc-hero-sub">From resilient cloud infrastructure to intelligent automation — explore the full spectrum of enterprise IT capabilities we deliver.</p>
+            <div class="svc-hero-actions">
+                <a href="./error.html" class="btn btn-primary">Explore Services</a>
+                <a href="./error.html" class="btn btn-outline">Request a Demo</a>
+            </div>
+        </div>
+
+        <div class="svc-custom-shape-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 L150,100 L300,0 L450,100 L600,0 L750,100 L900,0 L1050,100 L1200,0 L1200,120 L0,120 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 2: Services Grid -->
+    <section class="section svc-grid-section fade-element" id="svc-grid">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Advanced IT Service Portfolio</h1>
+                <p>Beyond the basics — our extended service portfolio covers the full spectrum of modern enterprise IT. Filter by category to discover the specialized capabilities we bring to your digital ecosystem, from quantum-ready infrastructure to AI-powered decision engines.</p>
+            </div>
+
+            <div class="svc-filter-bar">
+                <button class="svc-filter-btn active" data-filter="all">All Services</button>
+                <button class="svc-filter-btn" data-filter="it">IT Solutions</button>
+                <button class="svc-filter-btn" data-filter="solutions">Digital Solutions</button>
+                <button class="svc-filter-btn" data-filter="ai">AI & Automation</button>
+            </div>
+
+            <div class="svc-cards-grid" id="svcCardsGrid">
+
+                <!-- Card 1 -->
+                <div class="svc-card" data-cat="it">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/1.webp" alt="Managed IT Support" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag it-tag"><i class="fas fa-server"></i> IT Solutions</span>
+                        <h1>Managed IT Support</h1>
+                        <p>Full-spectrum remote monitoring, incident response, and proactive maintenance for your entire infrastructure stack.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Get Support <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="svc-card" data-cat="it">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/2.webp" alt="Network Architecture" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag it-tag"><i class="fas fa-network-wired"></i> IT Solutions</span>
+                        <h1>Network Architecture</h1>
+                        <p>Enterprise SD-WAN, VLAN design, and fiber optic infrastructure for resilient global connectivity.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="svc-card" data-cat="solutions">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/3.webp" alt="ERP Integration" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag sol-tag"><i class="fas fa-cogs"></i> Digital Solutions</span>
+                        <h1>ERP System Integration</h1>
+                        <p>End-to-end SAP, Oracle &amp; Dynamics ERP integration with custom API connectors and live data sync.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Explore ERP <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="svc-card" data-cat="ai">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/4.webp" alt="NLP &amp; Language AI" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag ai-tag"><i class="fas fa-brain"></i> AI &amp; Automation</span>
+                        <h1>NLP &amp; Language AI</h1>
+                        <p>Custom LLM pipelines, document intelligence, and multilingual sentiment analysis for global enterprise operations.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">See in Action <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="svc-card" data-cat="solutions">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/5.webp" alt="Digital Transformation" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag sol-tag"><i class="fas fa-sync-alt"></i> Digital Solutions</span>
+                        <h1>Digital Transformation</h1>
+                        <p>Strategic roadmap from legacy system modernization to cloud-native architecture adoption with full team enablement.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Start Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="svc-card" data-cat="ai">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/6.webp" alt="Robotic Process Automation" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag ai-tag"><i class="fas fa-robot"></i> AI &amp; Automation</span>
+                        <h1>Robotic Process Automation</h1>
+                        <p>Intelligent software robots eliminating repetitive tasks, accelerating throughput and reducing operational costs.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Automate Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="svc-card" data-cat="it">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/7.webp" alt="IT Disaster Recovery" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag it-tag"><i class="fas fa-shield-alt"></i> IT Solutions</span>
+                        <h1>Disaster Recovery</h1>
+                        <p>Geo-redundant failover, automated backups and sub-15-min RTO recovery protocols for critical enterprise assets.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Protect Systems <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="svc-card" data-cat="solutions">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/8.webp" alt="Custom Software Dev" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag sol-tag"><i class="fas fa-code"></i> Digital Solutions</span>
+                        <h1>Custom Software Dev</h1>
+                        <p>Bespoke applications built with modern stacks — React, Node, Python — engineered for your exact business logic.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Build Apps <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="svc-card" data-cat="ai">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/9.webp" alt="Predictive Analytics" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag ai-tag"><i class="fas fa-chart-line"></i> AI &amp; Automation</span>
+                        <h1>Predictive Analytics</h1>
+                        <p>ML-driven forecasting for inventory, churn prediction, and real-time operational risk scoring dashboards.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">View Forecasts <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="svc-card" data-cat="solutions">
+                    <div class="svc-card-img-wrap">
+                        <img src="../assets/Services/Grid/10.webp" alt="IoT Infrastructure" class="svc-card-img">
+                    </div>
+                    <div class="svc-card-body">
+                        <span class="svc-card-tag sol-tag"><i class="fas fa-wifi"></i> Digital Solutions</span>
+                        <h1>IoT Infrastructure</h1>
+                        <p>End-to-end IoT ecosystem design — edge nodes, sensor networks, and cloud-connected real-time data pipelines.</p>
+                        <a href="./error.html" class="btn btn-outline svc-card-cta">Connect Now <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="svc-no-match" style="display:none; text-align:center; color: var(--primary); font-size:1.2rem; margin-top:30px;">No services found for this category.</p>
+        </div>
+    </section>
+
+    <!-- Section 3: Pricing Table -->
+    <section class="section svc-pricing-section fade-element" id="svc-pricing">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Transparent Service Pricing</h1>
+                <p>We believe enterprise-grade technology should be accessible with clear, structured pricing. Choose the plan that best aligns with your organization's scale, ambition, and operational requirements. All plans include dedicated account management and SLA guarantees.</p>
+            </div>
+
+            <div class="svc-pricing-grid">
+
+                <!-- Plan 1 -->
+                <div class="svc-price-card">
+                    <div class="svc-price-header">
+                        <div class="svc-price-icon"><i class="fas fa-seedling"></i></div>
+                        <h2>Starter</h2>
+                        <h3>For Emerging Businesses</h3>
+                        <div class="svc-price-amount">
+                            <span class="svc-price-currency">$</span>
+                            <span class="svc-price-num">499</span>
+                            <span class="svc-price-period">/ mo</span>
+                        </div>
+                        <p class="svc-price-desc">Essential IT services to establish your digital foundation and protect core business operations.</p>
+                    </div>
+                    <ul class="svc-price-features">
+                        <li><i class="fas fa-check-circle"></i> Managed IT Support (9–5)</li>
+                        <li><i class="fas fa-check-circle"></i> Basic Network Monitoring</li>
+                        <li><i class="fas fa-check-circle"></i> Cloud Backup (500 GB)</li>
+                        <li><i class="fas fa-check-circle"></i> Monthly Security Scans</li>
+                        <li><i class="fas fa-check-circle"></i> Email & Collaboration Tools</li>
+                        <li class="svc-feat-off"><i class="fas fa-times-circle"></i> Dedicated Account Manager</li>
+                        <li class="svc-feat-off"><i class="fas fa-times-circle"></i> AI Automation Modules</li>
+                    </ul>
+                    <a href="./error.html" class="btn btn-outline svc-price-btn">Get Started <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="svc-price-card svc-price-featured">
+                    <div class="svc-price-badge">Most Popular</div>
+                    <div class="svc-price-header">
+                        <div class="svc-price-icon"><i class="fas fa-rocket"></i></div>
+                        <h2>Professional</h2>
+                        <h3>For Scaling Enterprises</h3>
+                        <div class="svc-price-amount">
+                            <span class="svc-price-currency">$</span>
+                            <span class="svc-price-num">1,299</span>
+                            <span class="svc-price-period">/ mo</span>
+                        </div>
+                        <p class="svc-price-desc">Full-service IT operations with proactive monitoring, cloud management, and intelligent automation.</p>
+                    </div>
+                    <ul class="svc-price-features">
+                        <li><i class="fas fa-check-circle"></i> 24/7 Managed IT Support</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced Network Security</li>
+                        <li><i class="fas fa-check-circle"></i> Cloud Management (5 TB)</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly Penetration Tests</li>
+                        <li><i class="fas fa-check-circle"></i> ERP Integration Support</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Account Manager</li>
+                        <li class="svc-feat-off"><i class="fas fa-times-circle"></i> Full AI Automation Suite</li>
+                    </ul>
+                    <a href="./error.html" class="btn btn-primary svc-price-btn">Upgrade Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="svc-price-card">
+                    <div class="svc-price-header">
+                        <div class="svc-price-icon"><i class="fas fa-globe"></i></div>
+                        <h2>Enterprise</h2>
+                        <h3>For Global Organizations</h3>
+                        <div class="svc-price-amount">
+                            <span class="svc-price-currency">$</span>
+                            <span class="svc-price-num">3,999</span>
+                            <span class="svc-price-period">/ mo</span>
+                        </div>
+                        <p class="svc-price-desc">Fully managed IT ecosystem with AI automation, global compliance, and zero-trust architecture.</p>
+                    </div>
+                    <ul class="svc-price-features">
+                        <li><i class="fas fa-check-circle"></i> Full-Stack Managed Operations</li>
+                        <li><i class="fas fa-check-circle"></i> Zero-Trust Network Design</li>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Cloud Storage</li>
+                        <li><i class="fas fa-check-circle"></i> Continuous Threat Intelligence</li>
+                        <li><i class="fas fa-check-circle"></i> AI Automation Suite (Full)</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Engineering Team</li>
+                        <li><i class="fas fa-check-circle"></i> Global Compliance Management</li>
+                    </ul>
+                    <a href="./error.html" class="btn btn-outline svc-price-btn">Contact Sales <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Plan 4 -->
+                <div class="svc-price-card">
+                    <div class="svc-price-header">
+                        <div class="svc-price-icon"><i class="fas fa-puzzle-piece"></i></div>
+                        <h2>Custom</h2>
+                        <h3>Tailored Just For You</h3>
+                        <div class="svc-price-amount">
+                            <span class="svc-price-currency svc-price-custom">Custom</span>
+                        </div>
+                        <p class="svc-price-desc">Build your own service bundle. Mix and match any capabilities from our full portfolio with flexible pricing.</p>
+                    </div>
+                    <ul class="svc-price-features">
+                        <li><i class="fas fa-check-circle"></i> Select Any Service Module</li>
+                        <li><i class="fas fa-check-circle"></i> Bespoke SLA Agreement</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Solutions Architect</li>
+                        <li><i class="fas fa-check-circle"></i> White-Label Options</li>
+                        <li><i class="fas fa-check-circle"></i> Hybrid / On-Premise Support</li>
+                        <li><i class="fas fa-check-circle"></i> Flexible Payment Terms</li>
+                        <li><i class="fas fa-check-circle"></i> NDA Protected Discovery Call</li>
+                    </ul>
+                    <a href="./error.html" class="btn btn-animated svc-price-btn">Schedule Call <i class="fas fa-calendar-alt"></i></a>
+                </div>
+
+            </div>
+
+            <div class="svc-pricing-note">
+                <i class="fas fa-info-circle"></i>
+                <p>All plans include a <strong>30-day free trial</strong>. No credit card required. Annual billing saves up to <strong>25%</strong>. Need help choosing? <a href="./error.html">Talk to a consultant →</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Careers -->
+    <section class="section svc-careers-section fade-element" id="svc-careers">
+        <div class="svc-careers-bg-slider" id="careersBgSlider">
+            <div class="svc-careers-bg-img active" style="background-image: url('../assets/Services/Grid/11.webp');"></div>
+            <div class="svc-careers-bg-img" style="background-image: url('../assets/Services/Grid/22.webp');"></div>
+            <div class="svc-careers-bg-img" style="background-image: url('../assets/Services/Grid/33.webp');"></div>
+        </div>
+        <div class="svc-careers-overlay"></div>
+
+        <div class="container svc-careers-content">
+            <div class="section-header" style="position:relative;z-index:2;">
+                <h1>Join the Team Building Tomorrow</h1>
+                <p>We are always looking for visionary engineers, designers, and strategists to shape the future of enterprise IT. At IT Domain Services, you will work on challenges that matter — with world-class colleagues in a culture that celebrates ambition, curiosity, and continuous learning.</p>
+            </div>
+
+            <div class="svc-careers-grid">
+
+                <div class="svc-career-card">
+                    <div class="svc-career-icon"><i class="fas fa-code"></i></div>
+                    <h2>Software Engineering</h2>
+                    <h4>Build Systems at Scale</h4>
+                    <p>Design and implement cloud-native microservices, APIs, and full-stack platforms that serve millions of enterprise users globally. Work with cutting-edge frameworks and distributed system patterns.</p>
+                    <ul class="svc-career-tasks">
+                        <li><i class="fas fa-angle-right"></i> Backend API architecture (Node, Python, Go)</li>
+                        <li><i class="fas fa-angle-right"></i> Microservices & container orchestration</li>
+                        <li><i class="fas fa-angle-right"></i> CI/CD pipeline design and maintenance</li>
+                    </ul>
+                    <div class="svc-career-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote / Hybrid</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    </div>
+                    <a href="./error.html" class="btn btn-primary">Apply Now <i class="fas fa-paper-plane"></i></a>
+                </div>
+
+                <div class="svc-career-card">
+                    <div class="svc-career-icon"><i class="fas fa-brain"></i></div>
+                    <h2>AI / ML Engineering</h2>
+                    <h4>Turn Data Into Intelligence</h4>
+                    <p>Research and build production-grade machine learning pipelines, LLMs, and predictive models integrated into live enterprise workflows. Push the boundaries of what AI can do in the real world.</p>
+                    <ul class="svc-career-tasks">
+                        <li><i class="fas fa-angle-right"></i> Model training and fine-tuning (PyTorch, TF)</li>
+                        <li><i class="fas fa-angle-right"></i> MLOps pipeline deployment and monitoring</li>
+                        <li><i class="fas fa-angle-right"></i> LLM integration for document intelligence</li>
+                    </ul>
+                    <div class="svc-career-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Hybrid</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time / Contract</span>
+                    </div>
+                    <a href="./error.html" class="btn btn-primary">Apply Now <i class="fas fa-paper-plane"></i></a>
+                </div>
+
+                <div class="svc-career-card">
+                    <div class="svc-career-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h2>Cybersecurity Analyst</h2>
+                    <h4>Defend the Digital Perimeter</h4>
+                    <p>Lead threat intelligence operations, conduct penetration testing, and architect zero-trust security postures for multinational enterprise clients. Stay ahead of emerging vulnerabilities around the clock.</p>
+                    <ul class="svc-career-tasks">
+                        <li><i class="fas fa-angle-right"></i> Threat modeling and red team exercises</li>
+                        <li><i class="fas fa-angle-right"></i> SIEM configuration and incident response</li>
+                        <li><i class="fas fa-angle-right"></i> Compliance audit (ISO 27001, SOC 2, GDPR)</li>
+                    </ul>
+                    <div class="svc-career-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> On-site</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                    </div>
+                    <a href="./error.html" class="btn btn-primary">Apply Now <i class="fas fa-paper-plane"></i></a>
+                </div>
+
+            </div>
+
+            <div class="svc-careers-cta">
+                <h3>Don't See Your Role?</h3>
+                <p>We're always building our bench. Send us your portfolio and we'll find where you thrive.</p>
+                <a href="./error.html" class="btn btn-animated">Submit Open Application <i class="fas fa-inbox"></i></a>
+                <a href="./error.html" class="btn btn-animated-alt">View All Openings <i class="fas fa-list"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: FAQ -->
+    <section class="section svc-faq-section fade-element" id="svc-faq">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Frequently Asked Questions</h1>
+                <p>We know that choosing an IT services partner is a significant decision. Here are answers to the most common questions our prospects and clients ask before and after engaging with our team. If you need further clarification, our team is always available.</p>
+            </div>
+
+            <div class="svc-faq-grid">
+
+                <div class="svc-faq-item">
+                    <button class="svc-faq-trigger" aria-expanded="false">
+                        <span class="svc-faq-q">How quickly can you onboard our organization?</span>
+                        <span class="svc-faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="svc-faq-body">
+                        <div class="svc-faq-answer">
+                            <p>Our onboarding process is designed for speed without compromising quality. Starter plans are typically live within <strong>72 hours</strong> of contract signing. Professional and Enterprise onboardings involve a dedicated solutions architect and are scoped across <strong>1–2 weeks</strong>, including system audits, infrastructure access setup, and staff enablement sessions. Custom plans include a discovery sprint that maps every dependency before go-live.</p>
+                            <a href="./error.html" class="btn btn-outline" style="margin-top:20px;">View Onboarding Guide <i class="fas fa-book-open"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-faq-item">
+                    <button class="svc-faq-trigger" aria-expanded="false">
+                        <span class="svc-faq-q">What SLA (Service Level Agreement) guarantees do you offer?</span>
+                        <span class="svc-faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="svc-faq-body">
+                        <div class="svc-faq-answer">
+                            <p>All plans come with formal SLA commitments. Starter plans guarantee a <strong>4-hour response time</strong> during business hours. Professional plans upgrade to a <strong>1-hour response SLA with 24/7 coverage</strong>. Enterprise clients receive a <strong>15-minute critical incident SLA</strong> with a dedicated on-call engineering rotation. All SLAs are backed by financial credits if targets are not met — full details are available in our service agreement documentation.</p>
+                            <a href="./error.html" class="btn btn-outline" style="margin-top:20px;">Read Full SLA Terms <i class="fas fa-file-contract"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-faq-item">
+                    <button class="svc-faq-trigger" aria-expanded="false">
+                        <span class="svc-faq-q">Are your services compliant with GDPR, HIPAA, and ISO standards?</span>
+                        <span class="svc-faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="svc-faq-body">
+                        <div class="svc-faq-answer">
+                            <p>Yes — compliance is foundational to everything we build. We are certified <strong>ISO 27001, SOC 2 Type II</strong> compliant and operate under strict GDPR data processing agreements. Our infrastructure supports HIPAA-eligible workloads for healthcare sector clients. Each client receives a dedicated compliance report monthly alongside automated audit logs for internal governance and third-party regulator submissions.</p>
+                            <a href="./error.html" class="btn btn-outline" style="margin-top:20px;">Download Compliance Pack <i class="fas fa-download"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="svc-faq-item">
+                    <button class="svc-faq-trigger" aria-expanded="false">
+                        <span class="svc-faq-q">Can we migrate from our existing IT provider without downtime?</span>
+                        <span class="svc-faq-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="svc-faq-body">
+                        <div class="svc-faq-answer">
+                            <p>Absolutely. We specialize in <strong>zero-downtime migrations</strong> — a core competency our operations team has refined across 250+ enterprise transitions. Our methodology uses a phased parallel-run approach: we stage and test all new configurations in a mirrored environment before switching over, ensuring your production systems experience no interruption. Migration plans are documented end-to-end and signed off before a single byte moves.</p>
+                            <a href="./error.html" class="btn btn-outline" style="margin-top:20px;">Plan Your Migration <i class="fas fa-exchange-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="svc-faq-cta">
+                <p>Still have questions? Our team is available 24/7.</p>
+                <a href="./error.html" class="btn btn-primary">Contact Our Experts <i class="fas fa-headset"></i></a>
+                <a href="./error.html" class="btn btn-animated-alt">Browse Knowledge Base <i class="fas fa-book"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fade-element">
+        <div class="container footer-container">
+            <div class="footer-col col-1">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img footer-logo-img">
+                <p>Delivering critically secure, high-performance digital infrastructure solutions internationally since 2010.</p>
+            </div>
+
+            <div class="footer-col col-2">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="./signup.html">Sign Up</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col col-3">
+                <h3>Research</h3>
+                <ul>
+                    <li><a href="./error.html">Quantum Computing</a></li>
+                    <li><a href="./error.html">Machine Learning</a></li>
+                    <li><a href="./error.html">Edge AI</a></li>
+                    <li><a href="./error.html">Zero-Trust Network</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col col-4">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Enter valid email" required>
+                    <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                    <p class="error-msg" id="form-error"></p>
+                </form>
+                <div class="social-block">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="./error.html"><i class="fab fa-twitter"></i></a>
+                        <a href="./error.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="./error.html"><i class="fab fa-github"></i></a>
+                        <a href="./error.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mini Footer -->
+    <div class="mini-footer">
+        <div class="container mini-footer-container">
+            <div class="copyrights">
+                <p>&copy; 2026 IT Domain Services. All rights reserved. Registered ISO-27001 Certified Entity.</p>
+            </div>
+            <div class="mini-footer-links">
+                <a href="./error.html" class="btn btn-sm">Privacy Policy</a>
+                <a href="./error.html" class="btn btn-sm">Terms of Service</a>
+                <a href="./error.html" class="btn btn-sm">Legal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Loader Logic
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => { loader.classList.add('hidden'); }, 300);
+            }
+            window.addEventListener('pageshow', (event) => {
+                if (event.persisted && loader) { loader.classList.add('hidden'); }
+            });
+            window.addEventListener('beforeunload', () => {
+                if (loader) loader.classList.remove('hidden');
+            });
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeSwitches = document.querySelectorAll('.theme-switch');
+            const htmlEl = document.documentElement;
+            function updateIcons(theme) {
+                themeSwitches.forEach(btn => {
+                    btn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+            function toggleTheme() {
+                if (htmlEl.getAttribute('data-theme') === 'light') {
+                    htmlEl.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateIcons('dark');
+                } else {
+                    htmlEl.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateIcons('light');
+                }
+            }
+            themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+            // Hamburger Menu
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const hamburgerOverlay = document.querySelector('.hamburger-overlay');
+            const hamburgerClose = document.querySelector('.hamburger-close');
+            if (hamburgerBtn && hamburgerOverlay && hamburgerClose) {
+                hamburgerBtn.addEventListener('click', () => hamburgerOverlay.classList.add('active'));
+                hamburgerClose.addEventListener('click', () => hamburgerOverlay.classList.remove('active'));
+                hamburgerOverlay.addEventListener('click', (e) => {
+                    if (e.target === hamburgerOverlay) hamburgerOverlay.classList.remove('active');
+                });
+            }
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations
+            const fadeElements = document.querySelectorAll('.fade-element');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Number Count Up
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetEl = entry.target;
+                        const target = +targetEl.getAttribute('data-target');
+                        const increment = target / (2000 / 16);
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                targetEl.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                targetEl.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                        observer.unobserve(targetEl);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // Section 1: Hero Background Carousel (2s)
+            const heroSlides = document.querySelectorAll('.svc-hero-slide');
+            let currentHero = 0;
+            if (heroSlides.length > 1) {
+                setInterval(() => {
+                    heroSlides[currentHero].classList.remove('active');
+                    currentHero = (currentHero + 1) % heroSlides.length;
+                    heroSlides[currentHero].classList.add('active');
+                }, 2000);
+            }
+
+            // Section 2: Services Filter
+            const svcFilterBtns = document.querySelectorAll('.svc-filter-btn');
+            const svcCards = document.querySelectorAll('.svc-card');
+            const svcNoMatch = document.getElementById('svc-no-match');
+            svcFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    svcFilterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.getAttribute('data-filter');
+                    let found = false;
+                    svcCards.forEach(card => {
+                        const cat = card.getAttribute('data-cat');
+                        if (filter === 'all' || cat === filter) {
+                            card.style.display = 'flex';
+                            found = true;
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                    if (svcNoMatch) svcNoMatch.style.display = found ? 'none' : 'block';
+                });
+            });
+
+            // Section 4: Careers Background Slider (horizontal)
+            const careerBgs = document.querySelectorAll('.svc-careers-bg-img');
+            let currentCareer = 0;
+            if (careerBgs.length > 1) {
+                setInterval(() => {
+                    careerBgs[currentCareer].classList.remove('active');
+                    currentCareer = (currentCareer + 1) % careerBgs.length;
+                    careerBgs[currentCareer].classList.add('active');
+                }, 3500);
+            }
+
+            // Section 5: FAQ Accordion
+            const faqTriggers = document.querySelectorAll('.svc-faq-trigger');
+            faqTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+                    // Close all
+                    faqTriggers.forEach(t => {
+                        t.setAttribute('aria-expanded', 'false');
+                        t.closest('.svc-faq-item').classList.remove('open');
+                        const icon = t.querySelector('.svc-faq-icon i');
+                        if (icon) { icon.className = 'fas fa-plus'; }
+                    });
+                    // Open clicked if it was closed
+                    if (!isOpen) {
+                        trigger.setAttribute('aria-expanded', 'true');
+                        trigger.closest('.svc-faq-item').classList.add('open');
+                        const icon = trigger.querySelector('.svc-faq-icon i');
+                        if (icon) { icon.className = 'fas fa-minus'; }
+                    }
+                });
+            });
+
+            // Newsletter Form
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                const emailInput = document.getElementById('emailInput');
+                const formError = document.getElementById('form-error');
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        formError.innerText = "Please enter a valid email address.";
+                        emailInput.style.borderColor = "red";
+                    } else {
+                        formError.innerText = "";
+                        emailInput.style.borderColor = "var(--border-color)";
+                        window.location.href = "./error.html";
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
