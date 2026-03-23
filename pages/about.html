@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IT Services Domain</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <header class="header" id="header">
+        <div class="header-container">
+            <span onclick="useNavigate('../index.html')" class="logo-link" role="button" tabindex="0">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img">
+            </span>
+
+            <nav class="desktop-nav">
+                <span onclick="useNavigate('../index.html')" class="nav-link" role="button" tabindex="0">Home</span>
+                <span onclick="useNavigate('./about.html')" class="nav-link active-nav" role="button" tabindex="0">About Us</span>
+                <span onclick="useNavigate('./services.html')" class="nav-link" role="button" tabindex="0">Services</span>
+                <span onclick="useNavigate('./blog.html')" class="nav-link" role="button" tabindex="0">Blog</span>
+                <span onclick="useNavigate('./contact.html')" class="nav-link" role="button" tabindex="0">Contact</span>
+                <span onclick="useNavigate('./signup.html')" class="nav-link" role="button" tabindex="0">Sign Up</span>
+                <span onclick="useNavigate('./login.html')" class="btn-login" role="button" tabindex="0">Login <i class="fas fa-sign-in-alt"></i></span>
+                <button class="theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+
+            <button class="hamburger-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="hamburger-overlay">
+        <div class="hamburger-menu">
+            <button class="hamburger-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+            <div class="hamburger-header">
+                <h2>Navigation Menu</h2>
+                <div class="hamburger-line"></div>
+            </div>
+            <nav class="mobile-nav">
+                <span onclick="useNavigate('../index.html')" class="nav-link" role="button" tabindex="0">Home</span>
+                <span onclick="useNavigate('./about.html')" class="nav-link active-nav" role="button" tabindex="0">About Us</span>
+                <span onclick="useNavigate('./services.html')" class="nav-link" role="button" tabindex="0">Services</span>
+                <span onclick="useNavigate('./blog.html')" class="nav-link" role="button" tabindex="0">Blog</span>
+                <span onclick="useNavigate('./contact.html')" class="nav-link" role="button" tabindex="0">Contact</span>
+                <span onclick="useNavigate('./signup.html')" class="nav-link" role="button" tabindex="0">Sign Up</span>
+                <span onclick="useNavigate('./login.html')" class="btn-login mobile-login" role="button" tabindex="0">Login <i class="fas fa-sign-in-alt"></i></span>
+                <button class="theme-switch mobile-theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+        </div>
+    </div>
+
+    <section class="section about-hero-section">
+        <div class="fixed-video-container">
+            <video autoplay muted loop playsinline class="about-bg-video">
+                <source src="../assets/About/aboutHero.mp4" type="video/mp4">
+            </video>
+            <div class="about-video-overlay"></div>
+        </div>
+        
+        <div class="hero-carousel-container fade-element">
+            <div class="hero-carousel-track" id="heroTrack">
+                <div class="hero-slide active">
+                    <h1>Pioneers in Digital Infrastructure</h1>
+                    <p>Building secure, scalable, and innovative enterprise solutions since 2010.</p>
+                    <div class="hero-buttons">
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated" role="button" tabindex="0">Discover Our Roots</span>
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated-alt" role="button" tabindex="0">Meet The Team</span>
+                    </div>
+                </div>
+                <div class="hero-slide">
+                    <h1>Engineering The Future</h1>
+                    <p>Leveraging cutting-edge cloud tech to deliver unprecedented performance.</p>
+                    <div class="hero-buttons">
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated" role="button" tabindex="0">View Our Tech Stack</span>
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated-alt" role="button" tabindex="0">Read The Manifesto</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section founders-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Leadership & Founders</h1>
+                <p>Meet the visionary minds driving our operations. Our leadership team brings decades of diverse enterprise IT and architectural experience from across the globe.</p>
+            </div>
+            
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <img src="../assets/About/Team/1.webp" alt="Founder 1" class="founder-img">
+                    <div class="founder-info">
+                        <h2>Jane Doe</h2>
+                        <p>Chief Executive Officer</p>
+                    </div>
+                    <div class="founder-hover-socials">
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-linkedin-in"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-twitter"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-github"></i></span>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <img src="../assets/About/Team/2.webp" alt="Founder 2" class="founder-img">
+                    <div class="founder-info">
+                        <h2>John Smith</h2>
+                        <p>Chief Technology Officer</p>
+                    </div>
+                    <div class="founder-hover-socials">
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-linkedin-in"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-twitter"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-github"></i></span>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <img src="../assets/About/Team/3.webp" alt="Founder 3" class="founder-img">
+                    <div class="founder-info">
+                        <h2>Sarah Chen</h2>
+                        <p>VP of Infrastructure</p>
+                    </div>
+                    <div class="founder-hover-socials">
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-linkedin-in"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-twitter"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-github"></i></span>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <img src="../assets/About/Team/4.webp" alt="Founder 4" class="founder-img">
+                    <div class="founder-info">
+                        <h2>Marcus Johnson</h2>
+                        <p>Lead Security Architect</p>
+                    </div>
+                    <div class="founder-hover-socials">
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-linkedin-in"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-twitter"></i></span>
+                        <span onclick="useNavigate('./error.html')" role="button" tabindex="0"><i class="fab fa-github"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section history-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Our Evolutionary Trajectory</h1>
+                <p>From an ambitious startup to an internationally certified digital powerhouse. Explore the extensive milestones that defined our relentless pursuit of technological excellence.</p>
+            </div>
+            
+            <div class="history-grid">
+                <div class="history-card">
+                    <img src="../assets/About/story1.webp" alt="History Inception" class="history-img">
+                    <div class="history-info">
+                        <h2>Inception & Upgrade</h2>
+                        <p>2010 - 2018</p>
+                    </div>
+                    <div class="history-hover-layer">
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated" role="button" tabindex="0">Read The Origin Story</span>
+                    </div>
+                </div>
+                <div class="history-card">
+                    <img src="../assets/About/story2.webp" alt="Global Expansion" class="history-img">
+                    <div class="history-info">
+                        <h2>Global Development</h2>
+                        <p>2019 - Present</p>
+                    </div>
+                    <div class="history-hover-layer">
+                        <span onclick="useNavigate('./error.html')" class="btn btn-animated" role="button" tabindex="0">View Global Footprint</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-wrapper">
+                <div class="stat-item">
+                    <h2 class="counter" data-target="15">0</h2>
+                    <p>Years Strong</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="40">0</h2>
+                    <p>Global Datacenters</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="counter" data-target="300">0</h2>
+                    <p>Active Blue-Chip Clients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section vision-section fade-element">
+        <div class="vision-bg-fixed">
+            <div class="vision-overlay"></div>
+        </div>
+        <div class="container section-container vision-content-wrapper">
+            <div class="section-header">
+                <h1>Our Guiding Principles</h1>
+                <p>The core ethos driving every single line of code and architectural decision we make.</p>
+            </div>
+            
+            <div class="vision-mission-grid">
+                <div class="vm-card">
+                    <h2><i class="fas fa-eye"></i> Our Vision</h2>
+                    <p>To construct an unbreakable, hyper-connected digital future where enterprise capabilities are only limited by imagination—not by infrastructure. We strive to be the unequivocal underlying foundation for the world's most innovative software platforms, driving humanity forward through reliable, zero-trust architectures.</p>
+                    <span onclick="useNavigate('./error.html')" class="btn btn-animated-alt" style="margin-top: 20px;" role="button" tabindex="0">Read Vision Document</span>
+                </div>
+                <div class="vm-card">
+                    <h2><i class="fas fa-rocket"></i> Our Mission</h2>
+                    <p>To arm organizations with military-grade IT services, frictionless cloud deployments, and powerful predictive AI capabilities. We aggressively eliminate technical debt and operational bottlenecks for our clients, guaranteeing sub-millisecond global latency and strict compliance with international protections.</p>
+                    <span onclick="useNavigate('./error.html')" class="btn btn-animated-alt" style="margin-top: 20px;" role="button" tabindex="0">Review Compliance Docs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section testimonials-section fade-element">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Client Endorsements</h1>
+                <p>We pride ourselves on unyielding client success. Read what industry leaders have to say about integrating our enterprise services.</p>
+            </div>
+            
+            <div class="testimonial-carousel-container">
+                <button class="test-btn test-prev" aria-label="Previous Testimonial"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="testimonial-track-wrapper">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-slide active">
+                            <h3>"Absolutely Transformative"</h3>
+                            <p>"Partnering with IT Domain Services entirely revolutionized our back-end architecture. Their custom DevOps pipeline drastically cut our deployment windows from strict weekly drops down to flawless, continuous daily deliveries with zero system downtime."</p>
+                            <h4>- David R., Director of Engineering</h4>
+                            <span onclick="useNavigate('./error.html')" class="btn btn-primary" style="margin-top:20px;" role="button" tabindex="0">Read Case Study</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <h3>"Impenetrable Security"</h3>
+                            <p>"Before working with this team, we were constantly battling compliance audits and fearing data leaks. Their proactive zero-trust integration and automated penetration testing framework shielded our proprietary assets permanently from outside attacks."</p>
+                            <h4>- Sarah M., Chief Info Security Officer</h4>
+                            <span onclick="useNavigate('./error.html')" class="btn btn-primary" style="margin-top:20px;" role="button" tabindex="0">Read Case Study</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <h3>"Unmatched Cloud Scale"</h3>
+                            <p>"We hit a severe scalability ceiling during our hyper-growth phase. Their engineers migrated our monolithic legacy databases over to a dynamically scaling, globally distributed micro-services architecture gracefully over a single weekend."</p>
+                            <h4>- Michael K., Startup Founder & CEO</h4>
+                            <span onclick="useNavigate('./error.html')" class="btn btn-primary" style="margin-top:20px;" role="button" tabindex="0">Read Case Study</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <h3>"Next-Gen AI Insights"</h3>
+                            <p>"Deploying their custom Machine Learning prediction models directly multiplied our logistics efficiency by phenomenal numbers. The level of granular data insight they've unlocked for our operations board is simply beyond industry standards."</p>
+                            <h4>- Elena P., VP of Analytics</h4>
+                            <span onclick="useNavigate('./error.html')" class="btn btn-primary" style="margin-top:20px;" role="button" tabindex="0">Read Case Study</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-btn test-next" aria-label="Next Testimonial"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fade-element">
+        <div class="container footer-container">
+            <div class="footer-col col-1">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img footer-logo-img">
+                <p>Delivering critically secure, high-performance digital infrastructure solutions internationally since 2010.</p>
+            </div>
+            
+            <div class="footer-col col-2">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="../pages/signup.html">Sign Up</a></li>
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col col-3">
+                <h3>Research</h3>
+                <ul>
+                    <li><a href="../pages/error.html">Quantum Computing</a></li>
+                    <li><a href="../pages/error.html">Machine Learning</a></li>
+                    <li><a href="../pages/error.html">Edge AI</a></li>
+                    <li><a href="../pages/error.html">Zero-Trust Network</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col col-4">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Enter valid email" required>
+                    <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                    <p class="error-msg" id="form-error"></p>
+                </form>
+                <div class="social-block">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="../pages/error.html"><i class="fab fa-twitter"></i></a>
+                        <a href="../pages/error.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="../pages/error.html"><i class="fab fa-github"></i></a>
+                        <a href="../pages/error.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mini Footer -->
+    <div class="mini-footer">
+        <div class="container mini-footer-container">
+            <div class="copyrights">
+                <p>&copy; 2026 IT Domain Services. All rights reserved. Registered ISO-27001 Certified Entity.</p>
+            </div>
+            <div class="mini-footer-links">
+                <a href="../pages/error.html" class="btn btn-sm">Privacy Policy</a>
+                <a href="../pages/error.html" class="btn btn-sm">Terms of Service</a>
+                <a href="../pages/error.html" class="btn btn-sm">Legal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Custom Routing System
+        function useNavigate(path) {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.classList.remove('hidden');
+            }
+            setTimeout(() => {
+                window.location.assign(path);
+            }, 150); 
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Loader Logic & BF Cache fix
+            const loader = document.getElementById('loader');
+            if (loader) {
+                setTimeout(() => { loader.classList.add('hidden'); }, 300);
+            }
+            window.addEventListener('pageshow', (event) => {
+                if (event.persisted && loader) {
+                    loader.classList.add('hidden');
+                }
+            });
+            window.addEventListener('beforeunload', () => { 
+                if (loader) loader.classList.remove('hidden'); 
+            });
+
+            // Theme Toggle
+            const themeSwitches = document.querySelectorAll('.theme-switch');
+            const htmlEl = document.documentElement;
+            function updateIcons(theme) {
+                themeSwitches.forEach(btn => {
+                    btn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+            function toggleTheme() {
+                if(htmlEl.getAttribute('data-theme') === 'light') {
+                    htmlEl.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    updateIcons('dark');
+                } else {
+                    htmlEl.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                    updateIcons('light');
+                }
+            }
+            themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+            // Hamburger Menu
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const hamburgerOverlay = document.querySelector('.hamburger-overlay');
+            const hamburgerClose = document.querySelector('.hamburger-close');
+
+            if(hamburgerBtn && hamburgerOverlay && hamburgerClose) {
+                hamburgerBtn.addEventListener('click', () => hamburgerOverlay.classList.add('active'));
+                hamburgerClose.addEventListener('click', () => hamburgerOverlay.classList.remove('active'));
+                hamburgerOverlay.addEventListener('click', (e) => {
+                    if(e.target === hamburgerOverlay) hamburgerOverlay.classList.remove('active');
+                });
+            }
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations Intersection Observer
+            const fadeElements = document.querySelectorAll('.fade-element');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Number Count Up Observer
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const targetEl = entry.target;
+                        const target = +targetEl.getAttribute('data-target');
+                        const increment = target / (2000 / 16); 
+                        let current = 0;
+                        const updateCounter = () => {
+                            current += increment;
+                            if(current < target) {
+                                targetEl.innerText = Math.ceil(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                targetEl.innerText = target;
+                            }
+                        };
+                        updateCounter();
+                        observer.unobserve(targetEl);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // Newsletter Validation
+            const newsletterForm = document.getElementById('newsletter-form');
+            if(newsletterForm) {
+                const emailInput = document.getElementById('emailInput');
+                const formError = document.getElementById('form-error');
+
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if(!emailRegex.test(email)) {
+                        formError.innerText = "Please enter a valid email address.";
+                        emailInput.style.borderColor = "red";
+                    } else {
+                        formError.innerText = "";
+                        emailInput.style.borderColor = "var(--border-color)";
+                        useNavigate("./error.html");
+                    }
+                });
+            }
+
+            // About Section 1: Vertical Hero Carousel
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            let currentHeroSlide = 0;
+            if(heroSlides.length > 0) {
+                setInterval(() => {
+                    heroSlides[currentHeroSlide].classList.remove('active');
+                    heroSlides[currentHeroSlide].classList.add('slide-out-down');
+                    
+                    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                    
+                    heroSlides[currentHeroSlide].classList.remove('slide-out-down');
+                    heroSlides[currentHeroSlide].classList.add('active');
+                }, 6000); 
+            }
+
+            // About Section 5: Horizontal Testimonial Carousel
+            const testSlides = document.querySelectorAll('.testimonial-slide');
+            const btnPrev = document.querySelector('.test-prev');
+            const btnNext = document.querySelector('.test-next');
+            const testContainer = document.querySelector('.testimonial-track-wrapper');
+            let currentTest = 0;
+            let testInterval;
+            
+            function showTestimonial(index) {
+                testSlides.forEach(slide => slide.classList.remove('active'));
+                testSlides[index].classList.add('active');
+            }
+
+            function startTestCarousel() {
+                clearInterval(testInterval);
+                testInterval = setInterval(() => {
+                    currentTest = (currentTest + 1) % testSlides.length;
+                    showTestimonial(currentTest);
+                }, 4000); // Swapped to a slightly longer duration for readability
+            }
+
+            function stopTestCarousel() {
+                clearInterval(testInterval);
+            }
+
+            if(testSlides.length > 0) {
+                startTestCarousel();
+                if (testContainer) {
+                    testContainer.addEventListener('mouseenter', stopTestCarousel);
+                    testContainer.addEventListener('mouseleave', startTestCarousel);
+                }
+            }
+
+            if(btnNext && btnPrev) {
+                btnNext.addEventListener('click', () => {
+                    stopTestCarousel();
+                    currentTest = (currentTest + 1) % testSlides.length;
+                    showTestimonial(currentTest);
+                    startTestCarousel();
+                });
+                btnPrev.addEventListener('click', () => {
+                    stopTestCarousel();
+                    currentTest = (currentTest - 1 + testSlides.length) % testSlides.length;
+                    showTestimonial(currentTest);
+                    startTestCarousel();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
