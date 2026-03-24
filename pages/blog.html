@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - IT Services Domain</title>
+    <meta name="description" content="Explore our professional IT insights, industry trends, deep-dive tutorials, and expert analysis on cloud, AI, cybersecurity, and enterprise technology.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+
+    <!-- Loader -->
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="../index.html" class="logo-link">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About Us</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./blog.html" class="nav-link active-nav">Blog</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+                <a href="./signup.html" class="nav-link">Sign Up</a>
+                <a href="./login.html" class="btn-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+
+            <!-- Hamburger Button -->
+            <button class="hamburger-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </header>
+
+    <!-- Hamburger Menu Overlay -->
+    <div class="hamburger-overlay">
+        <div class="hamburger-menu">
+            <button class="hamburger-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+            <div class="hamburger-header">
+                <h2>Navigation Menu</h2>
+                <div class="hamburger-line"></div>
+            </div>
+            <nav class="mobile-nav">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="./about.html" class="nav-link">About Us</a>
+                <a href="./services.html" class="nav-link">Services</a>
+                <a href="./blog.html" class="nav-link active-nav">Blog</a>
+                <a href="./contact.html" class="nav-link">Contact</a>
+                <a href="./signup.html" class="nav-link">Sign Up</a>
+                <a href="./login.html" class="btn-login mobile-login">Login <i class="fas fa-sign-in-alt"></i></a>
+                <button class="theme-switch mobile-theme-switch" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Section 1: Blog Hero Banner -->
+    <section class="blg-hero-section" id="blg-hero">
+        <div class="blg-hero-carousel" id="blgHeroBg">
+            <div class="blg-hero-slide active" style="background-image: url('../assets/Blog/hero1.webp');"></div>
+            <div class="blg-hero-slide" style="background-image: url('../assets/Blog/hero2.webp');"></div>
+            <div class="blg-hero-slide" style="background-image: url('../assets/Blog/hero3.webp');"></div>
+        </div>
+        <div class="blg-hero-overlay"></div>
+        <div class="blg-hero-content">
+            <p class="blg-hero-eyebrow">IT Insights & Research</p>
+            <h1 class="blg-hero-title">The <span class="blg-accent">Knowledge Hub</span></h1>
+            <p class="blg-hero-sub">In-depth analysis, expert opinion, industry trends, and technical deep-dives from the engineers and strategists building the future of enterprise technology.</p>
+            <div class="blg-hero-actions">
+                <a href="#blg-articles" class="btn btn-primary">Browse Articles <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+        <div class="blg-custom-shape-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0 L600,80 L1200,0 L1200,120 L0,120 Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Section 2: Articles Grid -->
+    <section class="section blg-articles-section fade-element" id="blg-articles">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Latest Articles & Insights</h1>
+                <p>Our editorial team curates cutting-edge perspectives from industry experts, practitioner engineers, and research analysts. Whether you are exploring cloud-native architectures, AI governance, or zero-trust security frameworks — every article is written to inform, challenge, and inspire your next strategic move.</p>
+            </div>
+
+            <!-- Search & Filter Bar -->
+            <div class="blg-controls">
+                <div class="blg-search-wrap">
+                    <i class="fas fa-search blg-search-icon"></i>
+                    <input type="search" id="blgSearch" class="blg-search-input" placeholder="Search articles by title or topic…" aria-label="Search articles">
+                </div>
+                <div class="blg-filter-bar">
+                    <button class="blg-filter-btn active" data-filter="all">All Articles</button>
+                    <button class="blg-filter-btn" data-filter="cloud">Cloud & Infrastructure</button>
+                    <button class="blg-filter-btn" data-filter="ai">AI & Automation</button>
+                    <button class="blg-filter-btn" data-filter="security">Cybersecurity</button>
+                </div>
+            </div>
+
+            <!-- Articles Grid -->
+            <div class="blg-grid" id="blgGrid">
+
+                <!-- Article 1 -->
+                <article class="blg-card" data-cat="cloud" data-title="zero downtime cloud migrations">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/1.webp" alt="Zero Downtime Cloud Migrations" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge cloud-badge">Cloud & Infrastructure</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> March 18, 2026</span>
+                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">Zero Downtime Cloud Migrations: A Practitioner's Blueprint</h1>
+                        <p class="blg-card-excerpt">How to migrate mission-critical enterprise workloads to multi-cloud environments without a single second of production interruption — including real-world case studies and architecture diagrams.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>James Hartwell</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">AWS</span>
+                                <span class="blg-tag">Migration</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blg-card" data-cat="ai" data-title="llm enterprise integration patterns">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/2.webp" alt="LLM Enterprise Integration" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge ai-badge">AI & Automation</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> March 14, 2026</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">LLM Enterprise Integration Patterns That Actually Scale</h1>
+                        <p class="blg-card-excerpt">A technical breakdown of retrieval-augmented generation (RAG), fine-tuning strategies, and prompt engineering frameworks that production teams are using to deploy LLMs at enterprise scale.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Dr. Priya Nair</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">LLM</span>
+                                <span class="blg-tag">RAG</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blg-card" data-cat="security" data-title="zero trust network architecture guide">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/3.webp" alt="Zero Trust Architecture" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge sec-badge">Cybersecurity</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> March 10, 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">Building a Zero Trust Network Architecture: Complete Guide for 2026</h1>
+                        <p class="blg-card-excerpt">Zero Trust is no longer optional. This step-by-step guide covers identity verification layers, micro-segmentation strategies, and least-privilege access policies for multinational enterprise environments.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Marcus Chen</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">Zero Trust</span>
+                                <span class="blg-tag">SIEM</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blg-card" data-cat="cloud" data-title="kubernetes cost optimization enterprise">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/4.webp" alt="Kubernetes Cost Optimization" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge cloud-badge">Cloud & Infrastructure</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> March 06, 2026</span>
+                            <span><i class="fas fa-clock"></i> 7 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">Kubernetes Cost Optimization: Slash Cloud Bills Without Sacrificing Performance</h1>
+                        <p class="blg-card-excerpt">From right-sizing workloads to spot instance strategies and namespace-level quotas — here are the top levers enterprise FinOps teams pull to reduce Kubernetes spend by up to 60%.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Sofia Reyes</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">K8s</span>
+                                <span class="blg-tag">FinOps</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blg-card" data-cat="ai" data-title="mlops production pipeline best practices">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/5.webp" alt="MLOps Production Pipeline" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge ai-badge">AI & Automation</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 28, 2026</span>
+                            <span><i class="fas fa-clock"></i> 13 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">MLOps Production Pipelines: From Model Training to Live Inference at Scale</h1>
+                        <p class="blg-card-excerpt">A comprehensive walkthrough of building robust MLOps pipelines using Kubeflow, MLflow, and Seldon Core — including monitoring strategies, drift detection, and automated retraining triggers.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Lena Volkov</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">MLOps</span>
+                                <span class="blg-tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blg-card" data-cat="security" data-title="incident response playbook ransomware">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/6.webp" alt="Incident Response Playbook" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge sec-badge">Cybersecurity</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 21, 2026</span>
+                            <span><i class="fas fa-clock"></i> 9 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">Incident Response Playbook: Containing Ransomware in Under 90 Minutes</h1>
+                        <p class="blg-card-excerpt">Real-world runbook from a live ransomware containment exercise — covering isolation procedures, forensic preservation, stakeholder communication, and recovery sequencing without paying the ransom.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>David Osei</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">IR</span>
+                                <span class="blg-tag">Ransomware</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 7 -->
+                <article class="blg-card" data-cat="cloud" data-title="edge computing iot real time latency">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/7.webp" alt="Edge Computing IoT" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge cloud-badge">Cloud & Infrastructure</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 14, 2026</span>
+                            <span><i class="fas fa-clock"></i> 6 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">Edge Computing for IoT: Achieving Sub-5ms Latency in Industrial Environments</h1>
+                        <p class="blg-card-excerpt">Designing edge-native data processing pipelines for manufacturing floors and smart cities — a technical architecture comparison of AWS Greengrass, Azure IoT Edge, and open-source alternatives.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Aiko Tanaka</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">Edge</span>
+                                <span class="blg-tag">IoT</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 8 -->
+                <article class="blg-card" data-cat="ai" data-title="ai governance compliance framework enterprise">
+                    <div class="blg-card-img-wrap">
+                        <img src="../assets/Blog/Grid/8.webp" alt="AI Governance Framework" class="blg-card-img">
+                        <div class="blg-card-img-overlay">
+                            <a href="./error.html" class="btn btn-primary">Read Article <i class="fas fa-arrow-right"></i></a>
+                            <a href="./error.html" class="btn btn-outline">Save for Later <i class="fas fa-bookmark"></i></a>
+                        </div>
+                        <span class="blg-cat-badge ai-badge">AI & Automation</span>
+                    </div>
+                    <div class="blg-card-body">
+                        <div class="blg-card-meta">
+                            <span><i class="fas fa-calendar-alt"></i> Feb 07, 2026</span>
+                            <span><i class="fas fa-clock"></i> 12 min read</span>
+                        </div>
+                        <h1 class="blg-card-title">AI Governance Frameworks: Ensuring Compliance Without Stifling Innovation</h1>
+                        <p class="blg-card-excerpt">A balanced exploration of the EU AI Act, NIST AI RMF, and internal governance mechanisms enterprises can adopt to responsibly deploy AI systems while staying ahead of regulatory requirements.</p>
+                        <div class="blg-card-footer">
+                            <div class="blg-author">
+                                <span>Fatima Al-Rashid</span>
+                            </div>
+                            <div class="blg-card-tags">
+                                <span class="blg-tag">Governance</span>
+                                <span class="blg-tag">Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- end blg-grid -->
+
+            <p id="blg-no-match" style="display:none; text-align:center; color:var(--primary); font-size:1.2rem; margin-top:30px; padding:20px;">No articles found matching your search.</p>
+
+        </div>
+    </section>
+
+    <!-- Section 3: Featured / Spotlight -->
+    <section class="section blg-spotlight-section fade-element" id="blg-spotlight">
+        <div class="container section-container">
+            <div class="section-header">
+                <h1>Editor's Spotlight</h1>
+                <p>Our editorial team hand-picks one definitive article each month that represents the very best of technical writing, strategic insight, and real-world impact. This month's spotlight dives deep into the intersection of AI and enterprise security — where the stakes have never been higher and the technology has never moved faster.</p>
+            </div>
+
+            <div class="blg-spotlight-card">
+                <div class="blg-spotlight-img-wrap">
+                    <img src="../assets/Blog/heroBg.webp" alt="Spotlight Article" class="blg-spotlight-img">
+                    <div class="blg-spotlight-img-overlay">
+                        <i class="fas fa-star blg-spotlight-star"></i>
+                        <span>Editor's Pick of the Month</span>
+                    </div>
+                </div>
+                <div class="blg-spotlight-body">
+                    <div class="blg-spotlight-meta">
+                        <span><i class="fas fa-calendar-alt"></i> March 2026</span>
+                        <span><i class="fas fa-clock"></i> 18 min read</span>
+                        <span><i class="fas fa-eye"></i> 24,500 views</span>
+                    </div>
+                    <h2 class="blg-spotlight-title">AI-Powered Threat Detection: How Machine Learning is Rewriting the Rules of Cybersecurity Defence</h2>
+                    <p class="blg-spotlight-desc">We explore how enterprise SOCs are integrating machine learning models into their SIEM pipelines to detect anomalous behaviour patterns in real time — dramatically reducing mean time to detect (MTTD) and mean time to respond (MTTR) across distributed, cloud-native infrastructure ecosystems.</p>
+                    <blockquote class="blg-spotlight-quote">
+                        "The perimeter is dead. The future of enterprise defence lives at the data layer — and AI is the only analyst that never sleeps."
+                        <footer>— Dr. Priya Nair, Head of AI Research</footer>
+                    </blockquote>
+                    <div class="blg-spotlight-actions">
+                        <a href="./error.html" class="btn btn-primary">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        <a href="./error.html" class="btn btn-outline">Share Article <i class="fas fa-share-alt"></i></a>
+                        <a href="./error.html" class="btn btn-outline">Download PDF <i class="fas fa-download"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer fade-element">
+        <div class="container footer-container">
+            <div class="footer-col col-1">
+                <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img footer-logo-img">
+                <p>Delivering critically secure, high-performance digital infrastructure solutions internationally since 2010.</p>
+            </div>
+
+            <div class="footer-col col-2">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="./signup.html">Sign Up</a></li>
+                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col col-3">
+                <h3>Research</h3>
+                <ul>
+                    <li><a href="./error.html">Quantum Computing</a></li>
+                    <li><a href="./error.html">Machine Learning</a></li>
+                    <li><a href="./error.html">Edge AI</a></li>
+                    <li><a href="./error.html">Zero-Trust Network</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col col-4">
+                <h3>Newsletter</h3>
+                <form id="newsletter-form" class="newsletter-form">
+                    <input type="email" id="emailInput" placeholder="Enter valid email" required>
+                    <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                    <p class="error-msg" id="form-error"></p>
+                </form>
+                <div class="social-block">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="./error.html"><i class="fab fa-twitter"></i></a>
+                        <a href="./error.html"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="./error.html"><i class="fab fa-github"></i></a>
+                        <a href="./error.html"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mini Footer -->
+    <div class="mini-footer">
+        <div class="container mini-footer-container">
+            <div class="copyrights">
+                <p>&copy; 2026 IT Domain Services. All rights reserved. Registered ISO-27001 Certified Entity.</p>
+            </div>
+            <div class="mini-footer-links">
+                <a href="./error.html" class="btn btn-sm">Privacy Policy</a>
+                <a href="./error.html" class="btn btn-sm">Terms of Service</a>
+                <a href="./error.html" class="btn btn-sm">Legal</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Loader
+            const loader = document.getElementById('loader');
+            if (loader) { setTimeout(() => loader.classList.add('hidden'), 300); }
+            window.addEventListener('pageshow', (e) => { if (e.persisted && loader) loader.classList.add('hidden'); });
+            window.addEventListener('beforeunload', () => { if (loader) loader.classList.remove('hidden'); });
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', () => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeSwitches = document.querySelectorAll('.theme-switch');
+            const htmlEl = document.documentElement;
+            function updateIcons(theme) {
+                themeSwitches.forEach(btn => {
+                    btn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                });
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+            function toggleTheme() {
+                const next = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                htmlEl.setAttribute('data-theme', next);
+                localStorage.setItem('theme', next);
+                updateIcons(next);
+            }
+            themeSwitches.forEach(btn => btn.addEventListener('click', toggleTheme));
+
+            // Hamburger Menu
+            const hamburgerBtn = document.querySelector('.hamburger-btn');
+            const hamburgerOverlay = document.querySelector('.hamburger-overlay');
+            const hamburgerClose = document.querySelector('.hamburger-close');
+            if (hamburgerBtn && hamburgerOverlay && hamburgerClose) {
+                hamburgerBtn.addEventListener('click', () => hamburgerOverlay.classList.add('active'));
+                hamburgerClose.addEventListener('click', () => hamburgerOverlay.classList.remove('active'));
+                hamburgerOverlay.addEventListener('click', (e) => { if (e.target === hamburgerOverlay) hamburgerOverlay.classList.remove('active'); });
+            }
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations
+            const fadeElements = document.querySelectorAll('.fade-element');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Number Count Up
+            const counters = document.querySelectorAll('.counter');
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = +el.getAttribute('data-target');
+                        const inc = target / (2000 / 16);
+                        let cur = 0;
+                        const tick = () => { cur += inc; if (cur < target) { el.innerText = Math.ceil(cur); requestAnimationFrame(tick); } else { el.innerText = target.toLocaleString(); } };
+                        tick();
+                        observer.unobserve(el);
+                    }
+                });
+            }, { rootMargin: '0px 0px -50px 0px' });
+            counters.forEach(c => counterObserver.observe(c));
+
+            // Hero Carousel
+            const heroSlides = document.querySelectorAll('.blg-hero-slide');
+            let currentHeroSlide = 0;
+            if (heroSlides.length > 1) {
+                setInterval(() => {
+                    heroSlides[currentHeroSlide].classList.remove('active');
+                    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+                    heroSlides[currentHeroSlide].classList.add('active');
+                }, 3000);
+            }
+
+            // Article Search & Filter
+            const blgSearch = document.getElementById('blgSearch');
+            const blgFilterBtns = document.querySelectorAll('.blg-filter-btn');
+            const blgCards = document.querySelectorAll('.blg-card');
+            const blgNoMatch = document.getElementById('blg-no-match');
+
+            function filterArticles() {
+                const term = blgSearch.value.toLowerCase().trim();
+                const activeCat = document.querySelector('.blg-filter-btn.active').getAttribute('data-filter');
+                let found = false;
+                blgCards.forEach(card => {
+                    const title = card.getAttribute('data-title') || '';
+                    const cat   = card.getAttribute('data-cat') || '';
+                    const matchesSearch = !term || title.includes(term);
+                    const matchesCat  = activeCat === 'all' || cat === activeCat;
+                    if (matchesSearch && matchesCat) { card.style.display = 'flex'; found = true; }
+                    else { card.style.display = 'none'; }
+                });
+                if (blgNoMatch) blgNoMatch.style.display = found ? 'none' : 'block';
+            }
+
+            blgFilterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    blgFilterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    filterArticles();
+                });
+            });
+            blgSearch.addEventListener('input', filterArticles);
+
+            // Footer Newsletter
+            const newsletterForm = document.getElementById('newsletter-form');
+            const emailInput = document.getElementById('emailInput');
+            const formError = document.getElementById('form-error');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value.trim();
+                    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!re.test(email)) {
+                        formError.innerText = 'Please enter a valid email address.';
+                        emailInput.style.borderColor = 'red';
+                    } else {
+                        formError.innerText = '';
+                        emailInput.style.borderColor = 'var(--border-color)';
+                        window.location.href = './error.html';
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
