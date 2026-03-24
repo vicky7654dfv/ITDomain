@@ -1,0 +1,414 @@
+/* ==========================================================================
+   Contact Page Styles
+   ========================================================================== */
+
+/* ---- Section 1: Intro Header ---- */
+.cnt-header-section {
+    padding: 140px 20px 60px;
+    text-align: center;
+    background: var(--bg-main);
+}
+.cnt-title {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+.cnt-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---- Section 2: Main Grid ---- */
+.cnt-main-section {
+    padding: 20px 20px 80px;
+    background: var(--bg-main);
+}
+.cnt-main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---- Animated Thick Border Boxes ---- */
+.anim-border-box {
+    position: relative;
+    border-radius: 16px;
+    background: var(--card-bg);
+    padding: 45px;
+    z-index: 1;
+    /* Transparent border allows the background-image borders to show */
+    border: 5px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    /* Animated Gradient Border */
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                      linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6, #10b981);
+    background-size: 100% 100%, 300% 100%;
+    animation: borderMove 6s linear infinite;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+@keyframes borderMove {
+    0% { background-position: 0% 0%, 0% 0%; }
+    100% { background-position: 0% 0%, 100% 0%; }
+}
+[data-theme="dark"] .anim-border-box {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ---- Info Box (Expanded Details) ---- */
+.cnt-info-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--text-main);
+}
+.cnt-info-item {
+    margin-bottom: 28px;
+}
+.cnt-info-item h3 {
+    font-size: 1.15rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.cnt-info-item p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-left: 30px;
+}
+
+.cnt-social {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid var(--border-color);
+}
+.cnt-social h3 {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+    color: var(--text-main);
+}
+.cnt-social-links {
+    display: flex;
+    gap: 16px;
+}
+.cnt-social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--border-color);
+    color: var(--text-main);
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.cnt-social-links a:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(16,185,129,0.3);
+}
+
+/* ---- Form Section ---- */
+.cnt-form-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--text-main);
+}
+.cnt-form-group {
+    margin-bottom: 24px;
+}
+.cnt-form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+.req { color: #ef4444; }
+
+/* Form Control Inputs */
+.cnt-form-control {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-radius: 8px;
+    outline: none;
+    border: 3px solid transparent; /* Thick color border for inputs */
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    /* Static animated-like styling */
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, var(--border-color), var(--border-color));
+    transition: all 0.3s ease;
+}
+.cnt-form-control::placeholder {
+    color: rgba(156, 163, 175, 0.6);
+}
+.cnt-form-control:focus {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, #10b981, #3b82f6);
+    box-shadow: 0 0 15px rgba(16,185,129,0.15);
+}
+
+/* Dark Theme Select Options Fix */
+[data-theme="dark"] .cnt-form-control option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Custom Select Dropdown */
+.cnt-select-wrap {
+    position: relative;
+}
+.cnt-select-wrap select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 40px;
+    cursor: pointer;
+}
+.cnt-select-wrap .select-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* Textarea Fixed Resizing */
+textarea.cnt-form-control {
+    resize: none;
+    height: 160px;
+}
+
+/* Submit Button */
+.cnt-submit-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(45deg, #10b981, #3b82f6);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.cnt-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16,185,129,0.35);
+}
+
+/* Error Messages */
+.cnt-form-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    display: none;
+}
+
+/* ---- Section 3: Interactive Location Map ---- */
+.cnt-map-sec {
+    padding: 20px 20px 100px;
+    background: var(--bg-main);
+}
+.cnt-map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.cnt-map-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--text-main);
+}
+.cnt-map-wrapper {
+    width: 600px; /* Slightly larger desktop base */
+    aspect-ratio: 1 / 1;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    
+    /* Overriding main anim-border padding, but keeping thick animated border */
+    padding: 0;
+    border: 6px solid transparent; 
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                      linear-gradient(45deg, #3b82f6, #8b5cf6, #10b981);
+    background-size: 100% 100%, 300% 300%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.cnt-map-wrapper:hover {
+    transform: scale(1.03) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(59,130,246,0.25);
+}
+[data-theme="dark"] .cnt-map-wrapper:hover {
+    box-shadow: 0 20px 40px rgba(59,130,246,0.4);
+}
+.cnt-map-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none; /* Passes click to wrapper anchor link */
+    border-radius: 14px; /* inner boundary radius */
+}
+.cnt-map-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+    border-radius: 14px;
+}
+.cnt-map-wrapper:hover .cnt-map-overlay {
+    opacity: 1;
+}
+.cnt-map-btn {
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.cnt-map-wrapper:hover .cnt-map-btn {
+    transform: translateY(0);
+}
+
+/* ================================================
+   Media Queries — 1024px
+   ================================================ */
+@media (max-width: 1024px) {
+    .cnt-main-grid {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+    }
+    .cnt-info-box {
+        order: 1; /* Retain stack priority */
+    }
+    .cnt-header-section { padding: 130px 20px 50px; }
+    .cnt-title { font-size: 3.4rem; }
+}
+
+/* ================================================
+   Media Queries — 768px
+   ================================================ */
+@media (max-width: 768px) {
+    .cnt-header-section { padding: 120px 20px 40px; }
+    .cnt-title { font-size: 2.8rem; }
+    .cnt-desc { font-size: 1.05rem; }
+    
+    .anim-border-box { padding: 35px; border-width: 4px; }
+    .cnt-info-box h2, .cnt-form-box h2 { font-size: 1.9rem; }
+    
+    .cnt-map-wrapper {
+        width: 100%;
+        max-width: 500px;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        padding: 0; /* Override anim-border-box padding */
+    }
+    .cnt-map-btn {
+        padding: 12px 22px;
+        font-size: 1rem;
+    }
+}
+
+/* ================================================
+   Media Queries — 425.6px
+   ================================================ */
+@media (max-width: 425.6px) {
+    .cnt-header-section { padding: 130px 20px 30px; }
+    .cnt-title { font-size: 2.3rem; }
+    .cnt-desc { font-size: 0.95rem; }
+    
+    .cnt-main-grid { gap: 30px; width: 100%; max-width: 420px; }
+    .anim-border-box { padding: 25px; border-width: 3px; border-radius: 12px; }
+    .anim-border-box::before { inset: -3px; border-radius: 15px; }
+    .anim-border-box::after { border-radius: 12px; }
+    
+    .cnt-info-box h2, .cnt-form-box h2 { font-size: 1.7rem; margin-bottom: 20px; }
+    .cnt-form-control { padding: 12px 16px; font-size: 1rem; }
+    textarea.cnt-form-control { height: 140px; }
+    
+    .cnt-submit-btn { padding: 15px; font-size: 1.05rem; }
+    
+    .cnt-map-title { font-size: 1.8rem; margin-bottom: 20px; }
+    .cnt-map-wrapper {
+        width: 100%;
+        max-width: 480px; 
+        aspect-ratio: 1 / 1;
+        height: auto;
+        padding: 0; /* Ensure zero padding at all costs */
+        border-width: 4px;
+        border-radius: 12px;
+    }
+    .cnt-map-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    .cnt-map-frame { border-radius: 8px; }
+    .cnt-map-overlay { border-radius: 8px; }
+}
+
+/* ================================================
+   Media Queries — 375.2px
+   ================================================ */
+@media (max-width: 375.2px) {
+    .cnt-header-section { padding: 130px 20px 25px; }
+    .cnt-title { font-size: 2rem; }
+    .cnt-main-grid{width: 100%; max-width: 360px;}
+    .anim-border-box { padding: 20px; }
+    .cnt-info-box h2, .cnt-form-box h2 { font-size: 1.5rem; }
+    .cnt-info-item h3 { font-size: 1.05rem; }
+    .cnt-info-item p { font-size: 0.9rem; margin-left: 24px; }
+    
+    .cnt-social h3 { font-size: 1.1rem; }
+    .cnt-social-links a { width: 40px; height: 40px; font-size: 1.1rem; }
+    
+    .cnt-form-control { padding: 12px 14px; font-size: 0.95rem; }
+    textarea.cnt-form-control { height: 120px; }
+    
+    .cnt-map-wrapper { 
+        width: 100%;
+        max-width: 400px; 
+        aspect-ratio: 1 / 1;
+        height: auto;
+        padding: 0;
+        border-width: 3px; 
+    }
+    .cnt-map-btn { padding: 10px 16px; font-size: 0.85rem; }
+}
