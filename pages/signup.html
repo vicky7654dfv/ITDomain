@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - IT Services Domain</title>
+    <meta name="description" content="Create an account to access secure enterprise IT services and infrastructure dashboards.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body class="su-body">
+
+    <div class="su-bg-layer"></div>
+
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="su-top-nav">
+        <a href="../index.html" class="su-return-btn"><i class="fas fa-arrow-left"></i> Return Home</a>
+        <button class="theme-switch su-theme-btn" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+    </div>
+
+    <section class="su-wrapper fade-element">
+        <div class="su-page-intro">
+            <h1 class="su-page-title">Create Your Access Portal</h1>
+            <p class="su-page-desc">Register securely for full access to our enterprise digital infrastructure ecosystem.</p>
+        </div>
+
+        <div class="su-container anim-border-box">
+            
+            <div class="su-left">
+                <a href="../index.html" class="su-logo-link">
+                    <img src="../assets/Home/Header/logo.webp" alt="Stackly Logo" class="su-logo">
+                </a>
+                <div class="su-left-content">
+                    <h3>Secure Infrastructure Awaits</h3>
+                    <p>Unlock enterprise-grade tools, real-time threat intelligence dashboards, and personalized DevOps pipelines by creating your administrative or client profile today.</p>
+                </div>
+            </div>
+
+            <div class="su-divider">
+                <div class="su-divider-line"></div>
+            </div>
+
+            <div class="su-right">
+                <div class="su-right-header">
+                    <h2>Account Registration</h2>
+                    <p>All fields are securely encrypted and mandatory.</p>
+                </div>
+
+                <form id="signupForm" class="su-form" novalidate>
+                    
+                    <div class="su-form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" class="su-form-control su-input-border" placeholder="E.g. Marcus Chen" required pattern="^[a-zA-Z\s]+$">
+                        <div class="su-error" id="errName">Only alphabetical characters allowed.</div>
+                    </div>
+
+                    <div class="su-form-row">
+                        <div class="su-form-group">
+                            <label for="regEmail">Work Email</label>
+                            <input type="email" id="regEmail" class="su-form-control su-input-border" placeholder="you@company.com" required>
+                            <div class="su-error" id="errEmail">Please enter a valid email format.</div>
+                        </div>
+
+                        <div class="su-form-group">
+                            <label for="regPhone">Phone Number</label>
+                            <input type="text" id="regPhone" class="su-form-control su-input-border" placeholder="10 Digits" required maxlength="10">
+                            <div class="su-error" id="errPhone">Exactly 10 numbers required.</div>
+                        </div>
+                    </div>
+
+                    <div class="su-form-row">
+                        <div class="su-form-group">
+                            <label for="regCompany">Company Name</label>
+                            <input type="text" id="regCompany" class="su-form-control su-input-border" placeholder="Company XYZ" required>
+                            <div class="su-error" id="errCompany">Company Name is required.</div>
+                        </div>
+
+                        <div class="su-form-group">
+                            <label for="regCategory">Account Role</label>
+                            <div class="su-select-wrap">
+                                <select id="regCategory" class="su-form-control su-input-border" required>
+                                    <option value="" disabled selected>Select Role...</option>
+                                    <option value="administrator">Administrator</option>
+                                    <option value="client">Client</option>
+                                </select>
+                                <i class="fas fa-chevron-down su-select-icon"></i>
+                            </div>
+                            <div class="su-error" id="errCategory">Please select a role.</div>
+                        </div>
+                    </div>
+
+                    <div class="su-form-group">
+                        <label for="regPass">Secure Password</label>
+                        <div class="su-pwd-wrap">
+                            <input type="password" id="regPass" class="su-form-control su-input-border" placeholder="Min 8 chars, 1 Upper, 1 Special, 1 Num" required>
+                            <button type="button" class="pwd-eye-btn" id="eyePass" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="su-error" id="errPass">Must be >=8 length, contain uppercase, lowercase, number, and special character.</div>
+                    </div>
+
+                    <div class="su-form-group">
+                        <label for="regPassConfirm">Confirm Password</label>
+                        <div class="su-pwd-wrap">
+                            <input type="password" id="regPassConfirm" class="su-form-control su-input-border" placeholder="Repeat your password" required>
+                            <button type="button" class="pwd-eye-btn" id="eyePassConfirm" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="su-error" id="errPassConfirm">Passwords must match exactly.</div>
+                    </div>
+
+                    <div class="su-form-group su-terms">
+                        <div class="su-radio-wrap">
+                            <input type="radio" id="regTerms" name="termsGroup" required value="accepted" class="su-real-radio">
+                            <label for="regTerms" class="su-radio-label" aria-hidden="true">
+                                <span class="custom-radio" id="customRadioSpan"></span>
+                            </label>
+                            <span class="su-terms-text">I agree to the <a href="./error.html" class="su-link">Terms &amp; Conditions</a> and data policies.</span>
+                        </div>
+                        <div class="su-error" id="errTerms">Registration requires accepting terms.</div>
+                    </div>
+
+                    <button type="submit" class="btn su-submit-btn">Register Account <i class="fas fa-shield-alt"></i></button>
+
+                    <p class="su-login-link">Already have an account? <a href="./login.html">Login here</a></p>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Loader
+            const loader = document.getElementById('loader');
+            if (loader) { setTimeout(() => loader.classList.add('hidden'), 300); }
+            window.addEventListener('pageshow', (e) => { if (e.persisted && loader) loader.classList.add('hidden'); });
+            window.addEventListener('beforeunload', () => { if (loader) loader.classList.remove('hidden'); });
+
+            // Enforce internal link loading states
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', () => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeBtn = document.querySelector('.theme-switch');
+            const htmlEl = document.documentElement;
+            function updateIcons(theme) {
+                if(themeBtn) themeBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+            if(themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    htmlEl.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateIcons(next);
+                });
+            }
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations
+            const fadeElements = document.querySelectorAll('.fade-element');
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '0px 0px -100px 0px' });
+            fadeElements.forEach(el => fadeObserver.observe(el));
+
+            // Setup Form Inputs / Validations
+            const signupForm = document.getElementById('signupForm');
+            const regName = document.getElementById('regName');
+            const regEmail = document.getElementById('regEmail');
+            const regPhone = document.getElementById('regPhone');
+            const regCompany = document.getElementById('regCompany');
+            const regCategory = document.getElementById('regCategory');
+            const regPass = document.getElementById('regPass');
+            const regPassConfirm = document.getElementById('regPassConfirm');
+            const regTerms = document.getElementById('regTerms');
+
+            // Name restriction: letters only
+            regName.addEventListener('input', function() {
+                this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+            });
+
+            // Phone restriction: 10 numbers exactly
+            regPhone.addEventListener('input', function() {
+                this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+            });
+
+            // Password Eye Toggles
+            function toggleEye(inputId, btnId) {
+                const inp = document.getElementById(inputId);
+                const btn = document.getElementById(btnId);
+                btn.addEventListener('click', () => {
+                    const type = inp.getAttribute('type') === 'password' ? 'text' : 'password';
+                    inp.setAttribute('type', type);
+                    btn.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+                });
+            }
+            toggleEye('regPass', 'eyePass');
+            toggleEye('regPassConfirm', 'eyePassConfirm');
+
+            // Custom radio visual toggle
+            const customRadioSpan = document.getElementById('customRadioSpan');
+            const regTermsReal = document.getElementById('regTerms');
+            document.querySelector('.su-radio-label').addEventListener('click', () => {
+                // Small delay to let the native input update its checked state
+                setTimeout(() => {
+                    if (regTermsReal.checked) {
+                        customRadioSpan.classList.add('radio-checked');
+                        customRadioSpan.classList.remove('radio-error');
+                        document.getElementById('errTerms').style.display = 'none';
+                    } else {
+                        customRadioSpan.classList.remove('radio-checked');
+                    }
+                }, 10);
+            });
+            // Form Submit Logic
+            if(signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    function setError(id, state) {
+                        document.getElementById('err' + id).style.display = state ? 'block' : 'none';
+                        document.getElementById('reg' + id).style.borderColor = state ? '#ef4444' : 'transparent';
+                    }
+
+                    // Name
+                    if(!regName.value.trim() || !/^[a-zA-Z\s]+$/.test(regName.value)) {
+                        setError('Name', true); isValid = false;
+                    } else setError('Name', false);
+
+                    // Email
+                    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if(!regEmail.value.trim() || !emailRe.test(regEmail.value)) {
+                        setError('Email', true); isValid = false;
+                    } else setError('Email', false);
+
+                    // Phone
+                    if(!regPhone.value.trim() || regPhone.value.length !== 10) {
+                        setError('Phone', true); isValid = false;
+                    } else setError('Phone', false);
+
+                    // Company
+                    if(!regCompany.value.trim()) {
+                        setError('Company', true); isValid = false;
+                    } else setError('Company', false);
+
+                    // Category
+                    if(!regCategory.value) {
+                        setError('Category', true); isValid = false;
+                    } else setError('Category', false);
+
+                    // Password
+                    // >=8 length, small, capital, special, number
+                    const passRe = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if(!regPass.value || !passRe.test(regPass.value)) {
+                        setError('Pass', true); isValid = false;
+                    } else setError('Pass', false);
+
+                    // Confirm Pass
+                    if(!regPassConfirm.value || regPassConfirm.value !== regPass.value) {
+                        setError('PassConfirm', true); isValid = false;
+                    } else setError('PassConfirm', false);
+
+                    // Terms (radio)
+                    if(!regTermsReal.checked) {
+                        document.getElementById('errTerms').style.display = 'block';
+                        if(customRadioSpan) customRadioSpan.classList.add('radio-error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('errTerms').style.display = 'none';
+                        if(customRadioSpan) customRadioSpan.classList.remove('radio-error');
+                    }
+                    // Registration Action
+                    if(isValid) {
+                        if (loader) loader.classList.remove('hidden');
+                        setTimeout(() => {
+                            window.location.href = './login.html';
+                        }, 500); // Small artificial delay to show loader as requested
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>

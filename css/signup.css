@@ -1,0 +1,506 @@
+/* ==========================================================================
+   Signup Page Styles
+   ========================================================================== */
+
+/* ---- Global Structural Elements ---- */
+.su-body {
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Fixed Background Image with Dark Overlay */
+.su-bg-layer {
+    position: fixed;
+    inset: 0;
+    /* Reused asset */
+    background-image: url('../assets/SignUp/bg.webp'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+.su-bg-layer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Lightly dark overlay universally across themes for legibility */
+    background: rgba(0, 0, 0, 0.70);
+    z-index: -1;
+}
+
+/* ---- Top Navigation Strip ---- */
+.su-top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+.su-return-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff; /* Always white against dark background */
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.su-return-btn:hover {
+    color: var(--primary);
+}
+.su-theme-btn {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+.su-theme-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: rotate(30deg);
+}
+
+/* ---- Main Wrapper Container ---- */
+.su-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+    z-index: 1;
+}
+
+/* Top Intro Headers */
+.su-page-intro {
+    text-align: center;
+    margin-bottom: 45px;
+    color: #fff; /* Static white text independent of theme */
+}
+.su-page-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+.su-page-desc {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* ---- Component Layout: Container ---- */
+.su-container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: var(--card-bg); /* reads theme variable */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    /* Animated Thick Dual-Theme Borders */
+    border: 5px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+}
+
+/* Light Theme Outer Container Border */
+.su-container {
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                      linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+/* Dark Theme Outer Container Border Override */
+[data-theme="dark"] .su-container {
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)), 
+                      linear-gradient(45deg, #10b981, #065f46, #047857);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+}
+
+/* Left Column Styling */
+.su-left {
+    flex: 0 0 35%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.03); /* Subtle tint */
+}
+[data-theme="dark"] .su-left { 
+    background: rgba(0,0,0,0.3); 
+}
+
+.su-logo {
+    height: 44px;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+.su-left-content h3 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+.su-left-content p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Smooth Gradient Separator between columns */
+.su-divider {
+    flex: 0 0 2px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+.su-divider-line {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
+}
+
+/* Right Column Form Space */
+.su-right {
+    flex: 1;
+    padding: 60px;
+}
+.su-right-header {
+    margin-bottom: 35px;
+}
+.su-right-header h2 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+.su-right-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* ---- Form Field Architecture ---- */
+.su-form-row {
+    display: flex;
+    gap: 25px;
+}
+.su-form-row .su-form-group {
+    flex: 1;
+}
+
+.su-form-group {
+    margin-bottom: 24px;
+}
+.su-form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+/* Interactive Thick Color Border Inputs */
+.su-input-border {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-radius: 8px;
+    outline: none;
+    border: 3px solid transparent; /* Required thick edge */
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    transition: all 0.3s ease;
+}
+
+/* Light Theme Input Setup */
+.su-input-border {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, #cbd5e1, #94a3b8);
+}
+.su-input-border:focus {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, #3b82f6, #8b5cf6);
+    box-shadow: 0 0 15px rgba(59,130,246,0.15);
+}
+
+/* Dark Theme Input Colors (Different as requested) */
+[data-theme="dark"] .su-input-border {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, #374151, #4b5563);
+}
+[data-theme="dark"] .su-input-border:focus {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)), 
+                      linear-gradient(45deg, #10b981, #059669);
+    box-shadow: 0 0 15px rgba(16,185,129,0.15);
+}
+[data-theme="dark"] #regCategory option {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.su-input-border::placeholder {
+    color: rgba(156, 163, 175, 0.7);
+}
+
+/* Category Dropdown Decorators */
+.su-select-wrap {
+    position: relative;
+}
+.su-select-wrap select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 45px;
+}
+.su-select-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* Password Eye Wrap */
+.su-pwd-wrap {
+    position: relative;
+}
+.su-pwd-wrap input {
+    padding-right: 55px; /* Give space for toggle */
+}
+.pwd-eye-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    outline: none;
+}
+.pwd-eye-btn:hover { color: var(--primary); }
+
+/* Custom Radio / Terms */
+.su-terms {
+    margin: 30px 0;
+}
+.su-radio-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+    position: relative;
+}
+
+/* Enhanced Specificity to Fix Misalignment */
+.su-form-group label.su-radio-label {
+    display: flex;
+    flex-shrink: 0;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Hide native radio without affecting layout */
+.su-real-radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+/* Visual custom radio circle — always visible */
+.custom-radio {
+    display: block;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    min-height: 22px;
+    border: 2.5px solid #10b981;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    margin: 0;
+}
+[data-theme="light"] .custom-radio {
+    border-color: #3b82f6;
+}
+/* Checked state via JS class */
+.custom-radio.radio-checked {
+    border-color: var(--primary);
+}
+.custom-radio.radio-checked::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: block;
+}
+/* Error state */
+.custom-radio.radio-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+.su-terms-text {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    cursor: default;
+    align-self: center;
+    line-height: 1.5;
+    margin: 0;
+}
+.su-link {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+
+/* Error States */
+.su-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Action Logics */
+.su-submit-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, var(--primary), #059669);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.su-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(16,185,129,0.35);
+}
+
+.su-login-link {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+.su-login-link a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+.su-login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ================================================
+   Media Queries — 1024px
+   ================================================ */
+@media (max-width: 1024px) {
+    .su-wrapper { padding: 100px 20px 50px; }
+    .su-page-title { font-size: 2.8rem; }
+    
+    .su-container {
+        flex-direction: column;
+        max-width: 800px;
+    }
+    .su-left {
+        flex: none;
+        padding: 40px;
+        text-align: center;
+    }
+    .su-logo { margin: 0 auto 20px; }
+    .su-divider { width: 80%; height: 2px; margin: 0 auto; }
+    .su-divider-line { width: 100%; height: 2px; background: linear-gradient(to right, transparent, var(--border-color), transparent); }
+    .su-right { padding: 50px; }
+}
+
+/* ================================================
+   Media Queries — 768px
+   ================================================ */
+@media (max-width: 768px) {
+    .su-top-nav { padding: 25px 30px; }
+    .su-wrapper { padding: 90px 20px 40px; }
+    .su-page-title { font-size: 2.4rem; }
+    
+    .su-right { padding: 40px 30px; }
+    .su-right-header h2 { font-size: 2rem; }
+    .su-form-row { gap: 15px; }
+}
+
+/* ================================================
+   Media Queries — 425.6px
+   ================================================ */
+@media (max-width: 425.6px) {
+    .su-top-nav { padding: 20px; }
+    .su-return-btn { font-size: 0.95rem; }
+    .su-theme-btn { width: 40px; height: 40px; }
+    
+    .su-page-title { font-size: 1.9rem; }
+    .su-page-desc { font-size: 1rem; }
+    
+    .su-form-row { flex-direction: column; gap: 0; }
+    .su-form-group { margin-bottom: 20px; }
+    
+    .su-left { padding: 30px 20px; }
+    .su-left-content h3 { font-size: 1.6rem; }
+    .su-right { padding: 30px 20px; }
+    
+    .su-input-border { padding: 14px 16px; font-size: 1rem; }
+    .su-submit-btn { padding: 16px; font-size: 1.05rem; }
+    .su-terms-text { font-size: 0.9rem; line-height: 1.5; }
+}
+
+/* ================================================
+   Media Queries — 375.2px
+   ================================================ */
+@media (max-width: 375.2px) {
+    .su-top-nav { padding: 15px; }
+    .su-page-title { font-size: 1.7rem; }
+    .su-page-desc { font-size: 0.9rem; }
+    
+    .su-right-header h2 { font-size: 1.7rem; }
+    .su-right-header p { font-size: 0.95rem; margin-bottom: 25px; }
+    
+    .su-left, .su-right { padding: 25px 15px; }
+    .custom-radio { width: 22px; height: 22px; }
+    .su-terms-text { font-size: 0.85rem; }
+}
