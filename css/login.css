@@ -1,0 +1,460 @@
+/* ==========================================================================
+   Login Page Styles
+   ========================================================================== */
+
+/* ---- Body & Background ---- */
+.lg-body {
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Fixed Background — same as signup */
+.lg-bg-layer {
+    position: fixed;
+    inset: 0;
+    background-image: url('../assets/SignUp/bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+.lg-bg-layer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.70);
+    z-index: -1;
+}
+
+/* ---- Top Navigation Strip ---- */
+.lg-top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+.lg-return-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.lg-return-btn:hover { color: var(--primary); }
+.lg-theme-btn {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+.lg-theme-btn:hover { background: var(--primary); border-color: var(--primary); transform: rotate(30deg); }
+
+/* ---- Main Wrapper ---- */
+.lg-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px 60px;
+    z-index: 1;
+}
+
+/* Page Intro */
+.lg-page-intro {
+    text-align: center;
+    margin-bottom: 45px;
+    color: #fff;
+}
+.lg-page-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+.lg-page-desc {
+    font-size: 1.15rem;
+    max-width: 650px;
+    margin: 0 auto;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* ---- Main Container ---- */
+.lg-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    /* Thick Animated Gradient Border */
+    border: 5px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Light Theme Border */
+.lg-container {
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)),
+                      linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899);
+    background-size: 100% 100%, 300% 100%;
+    animation: lgBorderMove 6s linear infinite;
+}
+@keyframes lgBorderMove {
+    0%   { background-position: 0% 0%, 0% 0%; }
+    100% { background-position: 0% 0%, 100% 0%; }
+}
+/* Dark Theme Border Override */
+[data-theme="dark"] .lg-container {
+    background-image: linear-gradient(var(--card-bg), var(--card-bg)),
+                      linear-gradient(45deg, #10b981, #065f46, #047857);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+}
+
+/* ---- Left Column ---- */
+.lg-left {
+    flex: 0 0 38%;
+    padding: 70px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.03);
+}
+[data-theme="dark"] .lg-left { background: rgba(0,0,0,0.3); }
+
+.lg-logo-link {
+    display: block;
+    width: fit-content;
+}
+.lg-logo {
+    height: 44px;
+    margin-bottom: 40px;
+}
+.lg-left-content h3 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+.lg-left-content p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ---- Separator ---- */
+.lg-divider {
+    flex: 0 0 2px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+}
+.lg-divider-line {
+    width: 2px;
+    height: 85%;
+    background: linear-gradient(to bottom, transparent, var(--border-color), transparent);
+}
+
+/* ---- Right Column ---- */
+.lg-right {
+    flex: 1;
+    padding: 70px 55px;
+}
+.lg-right-header {
+    margin-bottom: 35px;
+}
+.lg-right-header h2 {
+    font-size: 2.4rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.lg-right-header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* ---- Form Fields ---- */
+.lg-form-group {
+    margin-bottom: 24px;
+}
+.lg-form-group label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+/* Thick Color-Border Inputs */
+.lg-input-border {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    border-radius: 8px;
+    outline: none;
+    border: 3px solid transparent;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+    transition: all 0.3s ease;
+}
+/* Light Theme Input Border */
+.lg-input-border {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)),
+                      linear-gradient(45deg, #cbd5e1, #94a3b8);
+}
+.lg-input-border:focus {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)),
+                      linear-gradient(45deg, #3b82f6, #8b5cf6);
+    box-shadow: 0 0 15px rgba(59,130,246,0.15);
+}
+/* Dark Theme Input Border (different colors per request) */
+[data-theme="dark"] .lg-input-border {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)),
+                      linear-gradient(45deg, #374151, #4b5563);
+}
+[data-theme="dark"] .lg-input-border:focus {
+    background-image: linear-gradient(var(--bg-main), var(--bg-main)),
+                      linear-gradient(45deg, #10b981, #059669);
+    box-shadow: 0 0 15px rgba(16,185,129,0.15);
+}
+[data-theme="dark"] #lgRole option {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+.lg-input-border::placeholder { color: rgba(156,163,175,0.7); }
+
+/* Select Dropdown */
+.lg-select-wrap { position: relative; }
+.lg-select-wrap select { appearance: none; cursor: pointer; padding-right: 45px; }
+.lg-select-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* Password Eye Button */
+.lg-pwd-wrap { position: relative; }
+.lg-pwd-wrap input { padding-right: 55px; }
+.lg-eye-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 8px;
+    outline: none;
+}
+.lg-eye-btn:hover { color: var(--primary); }
+
+/* ---- Remember Me + Forgot Password Row ---- */
+.lg-form-row-split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 12px;
+}
+.lg-remember-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    cursor: default;
+    position: relative;
+}
+.lg-radio-label {
+    display: flex;
+    flex-shrink: 0;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.lg-real-radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+/* Visual Radio */
+.lg-custom-radio {
+    display: block;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 2.5px solid #10b981;
+    border-radius: 50%;
+    background: transparent;
+    position: relative;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    margin: 0;
+}
+[data-theme="light"] .lg-custom-radio { border-color: #3b82f6; }
+.lg-custom-radio.lg-radio-checked { border-color: var(--primary); }
+.lg-custom-radio.lg-radio-checked::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: block;
+}
+.lg-remember-text {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    cursor: default;
+    align-self: center;
+    line-height: 1.5;
+    margin: 0;
+}
+.lg-forgot-link {
+    color: var(--primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.lg-forgot-link:hover { text-decoration: underline; }
+
+/* Error Messages */
+.lg-error {
+    color: #ef4444;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Submit Button */
+.lg-submit-btn {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(45deg, var(--primary), #059669);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.lg-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(16,185,129,0.35);
+}
+
+.lg-signup-link {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+.lg-signup-link a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+.lg-signup-link a:hover { text-decoration: underline; }
+
+/* ================================================
+   Media Queries — 1024px
+   ================================================ */
+@media (max-width: 1024px) {
+    .lg-wrapper { padding: 100px 20px 50px; }
+    .lg-page-title { font-size: 2.8rem; }
+    .lg-container { flex-direction: column; max-width: 700px; }
+    .lg-left { flex: none; padding: 40px; text-align: center; }
+    .lg-logo { margin: 0 auto 20px; }
+    .lg-divider { width: 80%; height: 2px; margin: 0 auto; }
+    .lg-divider-line { width: 100%; height: 2px; background: linear-gradient(to right, transparent, var(--border-color), transparent); }
+    .lg-right { padding: 50px; }
+}
+
+/* ================================================
+   Media Queries — 768px
+   ================================================ */
+@media (max-width: 768px) {
+    .lg-top-nav { padding: 25px 30px; }
+    .lg-wrapper { padding: 90px 20px 40px; }
+    .lg-page-title { font-size: 2.4rem; }
+    .lg-right { padding: 40px 30px; }
+    .lg-right-header h2 { font-size: 2rem; }
+}
+
+/* ================================================
+   Media Queries — 425.6px
+   ================================================ */
+@media (max-width: 425.6px) {
+    .lg-top-nav { padding: 20px; }
+    .lg-return-btn { font-size: 0.95rem; }
+    .lg-theme-btn { width: 40px; height: 40px; }
+    .lg-page-title { font-size: 1.9rem; }
+    .lg-page-desc { font-size: 1rem; }
+    .lg-left { padding: 30px 20px; }
+    .lg-left-content h3 { font-size: 1.6rem; }
+    .lg-right { padding: 30px 20px; }
+    .lg-input-border { padding: 14px 16px; font-size: 1rem; }
+    .lg-submit-btn { padding: 16px; font-size: 1.05rem; }
+    .lg-form-row-split { flex-wrap: wrap; gap: 12px; }
+    .lg-remember-text { font-size: 0.9rem; }
+    .lg-forgot-link { font-size: 0.9rem; }
+}
+
+/* ================================================
+   Media Queries — 375.2px
+   ================================================ */
+@media (max-width: 375.2px) {
+    .lg-top-nav { padding: 15px; }
+    .lg-page-title { font-size: 1.7rem; }
+    .lg-page-desc { font-size: 0.9rem; }
+    .lg-right-header h2 { font-size: 1.7rem; }
+    .lg-right-header p { font-size: 0.95rem; }
+    .lg-left, .lg-right { padding: 25px 15px; }
+    .lg-input-border { padding: 12px 14px; font-size: 0.95rem; }
+    .lg-custom-radio { width: 18px; height: 18px; min-width: 18px; min-height: 18px; }
+    .lg-remember-text { font-size: 0.85rem; }
+    .lg-forgot-link { font-size: 0.85rem; }
+}

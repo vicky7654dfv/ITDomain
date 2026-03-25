@@ -148,6 +148,10 @@
     background: rgba(0,0,0,0.3); 
 }
 
+.su-logo-link {
+    display: block;
+    width: fit-content;
+}
 .su-logo {
     height: 44px;
     margin-bottom: 40px;

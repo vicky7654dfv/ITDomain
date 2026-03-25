@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | IT Services Domain</title>
+    <!-- Favicon from index.html -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/adminDashboard.css">
+</head>
+<body>
+    <!-- Theme Initializer -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+
+    <!-- Global Loader -->
+    <div class="loader" id="pageLoader" aria-hidden="true" role="status">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <div class="dash-layout">
+        
+        <!-- SIDE NAVIGATION -->
+        <aside class="dash-sidebar" id="dashSidebar">
+            <div class="sidebar-logo">
+                <a href="../index.html" class="site-link" style="text-decoration:none;">
+                    <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" style="height: 38px; width: auto;">
+                </a>
+            </div>
+            
+            <nav class="sidebar-nav" id="sidebarNav">
+                <button class="nav-item active" data-target="dashboard" aria-label="Go to Overview">
+                    <i class="fa-solid fa-server"></i> <span>Overview</span>
+                </button>
+                <button class="nav-item" data-target="resource-management" aria-label="Go to Resource Management">
+                    <i class="fa-solid fa-network-wired"></i> <span>Resources</span>
+                </button>
+                <button class="nav-item" data-target="analytics" aria-label="Go to Analytics">
+                    <i class="fa-solid fa-chart-line"></i> <span>Analytics</span>
+                </button>
+                <button class="nav-item" data-target="security-audit" aria-label="Go to Security Audit">
+                    <i class="fa-solid fa-shield-halved"></i> <span>Security Logs</span>
+                </button>
+                <button class="nav-item" data-target="settings" aria-label="Go to Settings">
+                    <i class="fa-solid fa-gear"></i> <span>Settings</span>
+                </button>
+            </nav>
+            
+            <div class="sidebar-quick-stats">
+                <h4>System Status</h4>
+                <div class="q-stat"><span>Active Nodes</span> <strong>1,402</strong></div>
+                <div class="q-stat"><span>Open Tickets</span> <strong>24</strong></div>
+                <div class="q-stat"><span>Network Load</span> <strong>64%</strong></div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="dash-main">
+            
+            <!-- TOPBAR -->
+            <header class="dash-topbar">
+                <a href="../index.html" class="mobile-top-logo" style="text-decoration:none;">
+                    <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" style="height: 30px; width: auto;">
+                </a>
+                
+                <form class="topbar-search" onsubmit="event.preventDefault();">
+                    <label for="adminSearch" class="sr-only">Search Resources...</label>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="adminSearch" name="topSearch" placeholder="Search resources..." class="search-input" autocomplete="off">
+                </form>
+                
+                <div class="topbar-actions">
+                    <button class="btn-dash outline-glow exit-btn" onclick="location.href='../index.html'" aria-label="Logout"><i class="fa-solid fa-power-off"></i> <span class="exit-text">Logout</span></button>
+                    <button class="icon-btn" aria-label="Notifications" onclick="location.href='./error.html'">
+                        <i class="fa-regular fa-bell"></i>
+                        <span class="notify-badge">5</span>
+                    </button>
+                    <button id="theme-toggle-btn" class="icon-btn" aria-label="Toggle Theme">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                    <div class="user-profile" onclick="location.href='./error.html'">
+                        <div class="user-info">
+                            <span class="user-name" id="displayEmail">admin@itservices.com</span>
+                            <span class="user-role">Super Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- CONTENT SECTIONS -->
+            <main class="dash-content-area">
+                
+                <!-- 1. DASHBOARD OVERVIEW -->
+                <section id="dashboard" class="dash-section active">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Infrastructure Overview</h2>
+                            <p class="subtitle">Monitor global network health and system capacities.</p>
+                        </div>
+                        <button class="btn-dash outline-glow" aria-label="Export Logs" onclick="location.href='./error.html'">Download Logs</button>
+                    </div>
+
+                    <div class="stat-cards">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-emerald">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Total Compute</span>
+                                <h3>45.2 PFLOPS</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +12%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-teal">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Storage Capacity</span>
+                                <h3>82% Used</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +2%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-blue">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Threats Blocked</span>
+                                <h3>12,450</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> +5.3%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon-wrapper soft-amber">
+                                <i class="fa-solid fa-wifi"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-label">Network Uptime</span>
+                                <h3>99.999%</h3>
+                                <p class="trend text-success"><i class="fa-solid fa-arrow-trend-up"></i> Steady</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-box">
+                            <div class="box-header">
+                                <div>
+                                    <h3>Network Traffic Volatility</h3>
+                                    <p class="subtitle">Point Connecting Wire Line Graph (Up/Down limits) in GB/s</p>
+                                </div>
+                            </div>
+                            <div class="canvas-container">
+                                <canvas id="wireLineChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-box">
+                            <div class="box-header">
+                                <div>
+                                    <h3>Cluster Availability</h3>
+                                    <p class="subtitle">Regional node distribution</p>
+                                </div>
+                            </div>
+                            <div class="canvas-container ring-chart-wrapper">
+                                <canvas id="regionalChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. RESOURCE MANAGEMENT -->
+                <section id="resource-management" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Resource Management</h2>
+                            <p class="subtitle">Track and configure deployed virtual instances and hardware.</p>
+                        </div>
+                        <button class="btn-dash" aria-label="Provision Node" onclick="location.href='./error.html'"><i class="fa-solid fa-plus" style="margin-right: 8px;"></i> Provision Node</button>
+                    </div>
+
+                    <div class="creative-widget table-widget">
+                        <div class="list-header">
+                            <h3>Active Instances</h3>
+                        </div>
+                        
+                        <div class="job-card-rows" id="resourceList">
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4 class="resource-name">Core-DB-Primary</h4>
+                                    <span>SQL Cluster • 128GB RAM</span>
+                                </div>
+                                <div class="job-dept">US-East-1</div>
+                                <div class="job-stats">Load: 42%</div>
+                                <div class="job-status"><span class="badge badge-success">Healthy</span></div>
+                                <div class="job-action"><button class="btn-dash" aria-label="Manage" onclick="location.href='./error.html'">Manage</button></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4 class="resource-name">LoadBalancer-Alpha</h4>
+                                    <span>Nginx Edge Node</span>
+                                </div>
+                                <div class="job-dept">EU-Central-2</div>
+                                <div class="job-stats">Load: 89%</div>
+                                <div class="job-status"><span class="badge badge-warn">High Load</span></div>
+                                <div class="job-action"><button class="btn-dash outline-glow" aria-label="Scale" onclick="location.href='./error.html'">Scale</button></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4 class="resource-name">Cache-Redis-01</h4>
+                                    <span>In-Memory Store</span>
+                                </div>
+                                <div class="job-dept">AP-South-1</div>
+                                <div class="job-stats">Load: 12%</div>
+                                <div class="job-status"><span class="badge badge-success">Healthy</span></div>
+                                <div class="job-action"><button class="btn-dash outline-glow" aria-label="Restart" onclick="location.href='./error.html'">Restart</button></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info">
+                                    <h4 class="resource-name">Storage-Bucket-X</h4>
+                                    <span>Object Storage</span>
+                                </div>
+                                <div class="job-dept">US-West-2</div>
+                                <div class="job-stats">Usage: 99%</div>
+                                <div class="job-status"><span class="badge badge-critical">Critical</span></div>
+                                <div class="job-action"><button class="btn-dash" style="background:var(--danger-color);color:#fff" aria-label="Expand" onclick="location.href='./error.html'">Expand</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. ANALYTICS -->
+                <section id="analytics" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Infrastructure Analytics</h2>
+                            <p class="subtitle">Detailed visual mapping of API usage and deployment architectures.</p>
+                        </div>
+                        <button class="btn-dash outline-glow" aria-label="Print Report" onclick="location.href='./error.html'">Print Report</button>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-box">
+                            <div class="box-header">
+                                <div>
+                                    <h3>API Request Volume</h3>
+                                    <p class="subtitle">Fully Occupied Hollow Structure Graph (Millions of Requests)</p>
+                                </div>
+                            </div>
+                            <div class="canvas-container" style="height: 350px;">
+                                <canvas id="hollowBarChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="creative-widget tree-widget">
+                            <h3 style="margin-bottom: 20px;">Architecture Hierarchy</h3>
+                            <p class="subtitle" style="margin-bottom: 30px;">Live nested dependency tree.</p>
+                            
+                            <div class="tree-structure">
+                                <div class="tree-node root-node">
+                                    <div class="node-box">Global Load Balancer</div>
+                                    <div class="tree-branches">
+                                        <div class="tree-branch">
+                                            <div class="node-box secondary-node">App Cluster Alpha</div>
+                                            <div class="tree-leaves">
+                                                <div class="node-leaf">Web Node 1</div>
+                                                <div class="node-leaf">Web Node 2</div>
+                                            </div>
+                                        </div>
+                                        <div class="tree-branch">
+                                            <div class="node-box secondary-node">App Cluster Beta</div>
+                                            <div class="tree-leaves">
+                                                <div class="node-leaf">Web Node 3</div>
+                                                <div class="node-leaf">Web Node 4</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3.5 SECURITY AUDIT -->
+                <section id="security-audit" class="dash-section">
+                    <div class="section-header-flex">
+                        <div class="section-text">
+                            <h2>Security & Audit Logs</h2>
+                            <p class="subtitle">Review unauthorized access attempts and system modifications.</p>
+                        </div>
+                        <button class="btn-dash" aria-label="Export Audit" onclick="location.href='./error.html'"><i class="fa-solid fa-download" style="margin-right: 8px;"></i> Export</button>
+                    </div>
+
+                    <div class="creative-widget table-widget">
+                        <div class="list-header">
+                            <h3>Recent Access Events</h3>
+                        </div>
+                        <div class="job-card-rows">
+                            <div class="job-row">
+                                <div class="job-main-info"><h4>Failed Login Attempt</h4><span>IP: 192.168.1.105</span></div>
+                                <div class="job-dept">Admin Portal</div>
+                                <div class="job-stats">2 mins ago</div>
+                                <div class="job-status"><span class="badge badge-critical">Blocked</span></div>
+                            </div>
+                            <div class="job-row">
+                                <div class="job-main-info"><h4>Firewall Rule Updated</h4><span>Admin: admin@itservices.com</span></div>
+                                <div class="job-dept">WAF Config</div>
+                                <div class="job-stats">1 hour ago</div>
+                                <div class="job-status"><span class="badge badge-success">Success</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. SETTINGS -->
+                <section id="settings" class="dash-section">
+                    <form id="admin-settings-form" class="section-header-flex" style="margin-bottom: 0;">
+                        <div class="section-text">
+                            <h2>System Configurations</h2>
+                            <p class="subtitle">Manage global variables, API keys, and security constraints.</p>
+                        </div>
+                        <button type="submit" class="btn-dash outline-glow" aria-label="Save Settings">Save Configuration</button>
+                    </form>
+
+                    <div class="settings-grid">
+                        
+                        <!-- Slot 1 -->
+                        <div class="creative-widget settings-card">
+                            <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-key" style="margin-right: 10px;"></i>1. API Key Rotation</h3>
+                            <p class="subtitle" style="margin-bottom: 20px;">Set frequency for automated credential resets across clusters.</p>
+                            <label for="apiRotation" class="dash-label">Rotation Interval</label>
+                            <select class="dash-input" name="apiRotation" id="apiRotation" aria-label="Select rotation interval" autocomplete="off">
+                                <option>Never (Manual)</option>
+                                <option selected>30 Days</option>
+                                <option>90 Days</option>
+                            </select>
+                        </div>
+
+                        <!-- Slot 2 -->
+                        <div class="creative-widget settings-card">
+                            <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-envelope" style="margin-right: 10px;"></i>2. SMTP Gateway</h3>
+                            <p class="subtitle" style="margin-bottom: 20px;">Configure outgoing mail server for system alerts.</p>
+                            <label for="smtpServer" class="dash-label">SMTP Relay Host</label>
+                            <input type="text" class="dash-input" name="smtpServer" id="smtpServer" placeholder="smtp.itservices.com" autocomplete="off" required>
+                            <div id="smtp-error" style="color: var(--danger-color); font-size: 0.8rem; margin-top: 5px; display: none;"></div>
+                        </div>
+
+                        <!-- Slot 3 -->
+                        <div class="creative-widget settings-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-shield-halved" style="margin-right: 10px;"></i>3. Security Rules</h3>
+                                <p class="subtitle" style="margin-bottom: 20px;">Enforce strict access policies for administrative accounts.</p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 15px;">
+                                <div>
+                                    <div class="dash-label" style="margin-bottom: 0;">Global MFA</div>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">Enforce everywhere.</span>
+                                </div>
+                                <button type="button" class="btn-dash btn-enforced" aria-label="Toggle MFA" onclick="location.href='./error.html'">Enforced</button>
+                            </div>
+                        </div>
+
+                        <!-- Slot 4 -->
+                        <div class="creative-widget settings-card">
+                            <h3 style="margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-cloud-arrow-down" style="margin-right: 10px;"></i>4. Data Export</h3>
+                            <p class="subtitle" style="margin-bottom: 20px;">Generate snapshot of all current configurations.</p>
+                            <label for="exportFormat" class="dash-label">Preferred Format</label>
+                            <select class="dash-input" name="exportFormat" id="exportFormat" aria-label="Select export format" style="margin-bottom: 15px;">
+                                <option>JSON Data Blob</option>
+                                <option>CSV Archive</option>
+                                <option>XML Config</option>
+                            </select>
+                            <button type="button" class="btn-dash outline-glow full-width" aria-label="Generate Export" style="width: 100%;" onclick="location.href='./error.html'">Initiate Export</button>
+                        </div>
+
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Loader & User Email Setup
+        const loader = document.getElementById('pageLoader');
+        
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    loader.setAttribute('aria-hidden', 'true');
+                }, 400);
+            }, 500);
+            
+            // Set User Email
+            const email = localStorage.getItem('userEmail');
+            if (email) {
+                document.getElementById('displayEmail').textContent = email;
+            }
+        });
+
+        document.querySelectorAll('button[onclick*="location.href"], a[href]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const target = el.getAttribute('onclick') ? el.getAttribute('onclick').split("'")[1] : el.getAttribute('href');
+                if (target && !target.startsWith('#') && !target.startsWith('javascript:')) {
+                    loader.style.display = 'flex';
+                    loader.classList.remove('fade-out');
+                    loader.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) {
+                loader.style.display = 'none';
+                loader.classList.add('fade-out');
+                loader.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const htmlElement = document.documentElement;
+        
+        function updateThemeIcon() {
+            if (htmlElement.getAttribute('data-theme') === 'light') {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            } else {
+                themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            }
+        }
+        updateThemeIcon();
+        
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
+            updateChartColors(); 
+        });
+
+        // Tab Routing
+        const navItems = document.querySelectorAll('.nav-item[data-target]');
+        const dashSections = document.querySelectorAll('.dash-section');
+
+        navItems.forEach(btn => {
+            btn.addEventListener('click', () => {
+                navItems.forEach(b => b.classList.remove('active'));
+                dashSections.forEach(s => s.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+                
+                // Redraw charts if needed
+                if (targetId === 'analytics' && hollowBarChart) hollowBarChart.resize();
+            });
+        });
+
+        // JS Charts representing IT graphs
+        let wireLineChart, regionalChart, hollowBarChart;
+
+        function initCharts() {
+            const ctxWire = document.getElementById('wireLineChart');
+            const ctxReg = document.getElementById('regionalChart');
+            const ctxHol = document.getElementById('hollowBarChart');
+            
+            if(!ctxWire || !ctxReg) return;
+
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#1e293b' : '#f8fafc';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+            const emPrimary = '#059669'; // Emerald primary
+            const emSecondary = '#10b981';
+
+            // 1. Wire Line Graph using stepped points
+            wireLineChart = new Chart(ctxWire.getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                    datasets: [{
+                        label: 'Traffic Volatility',
+                        data: [120, 85, 300, 450, 210, 520, 180],
+                        borderColor: emPrimary,
+                        borderWidth: 2,
+                        stepped: true, // Creates the distinct wireline boxy look
+                        pointBackgroundColor: emSecondary,
+                        pointBorderColor: '#fff',
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        fill: false
+                    }]
+                },
+                options: { 
+                    responsive: true, 
+                    maintainAspectRatio: false, 
+                    plugins: { legend: { display: false } }, 
+                    scales: { 
+                        x: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { display: false } }, 
+                        y: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { color: gridColor }, min: 0 } 
+                    } 
+                }
+            });
+
+            // 2. Ring Chart (Regional)
+            regionalChart = new Chart(ctxReg.getContext('2d'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['US-East', 'EU-Central', 'AP-South', 'US-West'],
+                    datasets: [{
+                        data: [45, 25, 20, 10],
+                        backgroundColor: ['#10b981', '#059669', '#3b82f6', '#0ea5e9'],
+                        borderWidth: 2,
+                        borderColor: isLight ? '#fff' : '#1e293b',
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: { 
+                        legend: { 
+                            position: 'right', 
+                            labels: { color: textColor, font: { family: "'Inter'" }, usePointStyle: true, padding: 15 } 
+                        } 
+                    }
+                }
+            });
+            
+            // 3. Hollow Box Chart
+            if(ctxHol) {
+                hollowBarChart = new Chart(ctxHol.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Requests (M)',
+                            data: [45, 52, 68, 74, 59, 32, 28],
+                            backgroundColor: 'transparent',
+                            borderColor: emPrimary,
+                            borderWidth: 3,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            x: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { display: false } }, 
+                            y: { ticks: { color: textColor, font: {family:'Inter'} }, grid: { color: gridColor }, min: 0 } 
+                        }
+                    }
+                });
+            }
+        }
+
+        function updateChartColors() {
+            if(!wireLineChart || !regionalChart) return;
+            const isLight = htmlElement.getAttribute('data-theme') === 'light';
+            const textColor = isLight ? '#1e293b' : '#f8fafc';
+            const gridColor = isLight ? 'rgba(0,0,0,0.05)' : 'rgba(255,255,255,0.05)';
+
+            wireLineChart.options.scales.x.ticks.color = textColor;
+            wireLineChart.options.scales.y.ticks.color = textColor;
+            wireLineChart.options.scales.y.grid.color = gridColor;
+            wireLineChart.update();
+
+            regionalChart.options.plugins.legend.labels.color = textColor;
+            regionalChart.data.datasets[0].borderColor = isLight ? '#fff' : '#1e293b';
+            regionalChart.update();
+            
+            if(hollowBarChart) {
+                hollowBarChart.options.scales.x.ticks.color = textColor;
+                hollowBarChart.options.scales.y.ticks.color = textColor;
+                hollowBarChart.options.scales.y.grid.color = gridColor;
+                hollowBarChart.update();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', initCharts);
+
+        // Search Validation 
+        const searchInput = document.getElementById('adminSearch');
+        if(searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const term = e.target.value.toLowerCase();
+                const jobRows = document.querySelectorAll('#resourceList .job-row');
+                
+                // Auto switch to resources tab if typing
+                const resBtn = document.querySelector('.nav-item[data-target="resource-management"]');
+                if(term.length > 0 && !resBtn.classList.contains('active')) {
+                    const focus = document.activeElement;
+                    resBtn.click();
+                    if(focus) setTimeout(() => focus.focus(), 10);
+                }
+
+                let foundMatch = false;
+                jobRows.forEach(row => {
+                    if (row.id === 'no-results-msg') return;
+                    const nameEl = row.querySelector('.resource-name');
+                    if(nameEl) {
+                        const txt = nameEl.textContent.toLowerCase();
+                        if(txt.includes(term)) {
+                            row.style.display = '';
+                            foundMatch = true;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                });
+
+                let msgRow = document.getElementById('no-results-msg');
+                if(!foundMatch && term.length > 0) {
+                    if(!msgRow) {
+                        msgRow = document.createElement('div');
+                        msgRow.id = 'no-results-msg';
+                        msgRow.className = 'job-row';
+                        msgRow.innerHTML = '<div style="text-align:center; width:100%; color: var(--text-muted); padding: 20px;">No matching resources</div>';
+                        document.getElementById('resourceList').appendChild(msgRow);
+                    }
+                    msgRow.style.display = '';
+                } else if(msgRow) {
+                    msgRow.style.display = 'none';
+                }
+            });
+        }
+
+        // Form Submission
+        document.getElementById('admin-settings-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const smtp = document.getElementById('smtpServer');
+            const errorMsg = document.getElementById('smtp-error');
+            
+            const pattern = /^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(!pattern.test(smtp.value)) {
+                smtp.style.borderColor = 'var(--danger-color)';
+                errorMsg.textContent = 'Please enter a valid SMTP host (e.g., smtp.domain.com).';
+                errorMsg.style.display = 'block';
+            } else {
+                errorMsg.style.display = 'none';
+                location.href = './error.html';
+            }
+        });
+        document.getElementById('smtpServer').addEventListener('input', function() {
+            this.style.borderColor = '';
+            document.getElementById('smtp-error').style.display = 'none';
+        });
+
+    </script>
+</body>
+</html>

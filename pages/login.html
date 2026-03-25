@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IT Services Domain</title>
+    <meta name="description" content="Login to access your IT Services enterprise dashboard.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body class="lg-body">
+
+    <div class="lg-bg-layer"></div>
+
+    <div id="loader" class="loader">
+        <img src="../assets/Home/Header/logo.webp" alt="IT Services Logo" class="site-logo-img loader-logo-img">
+    </div>
+
+    <button id="scrollToTopBtn" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+
+    <div class="lg-top-nav">
+        <a href="../index.html" class="lg-return-btn"><i class="fas fa-arrow-left"></i> Return Home</a>
+        <button class="theme-switch lg-theme-btn" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+    </div>
+
+    <section class="lg-wrapper fade-element">
+        <div class="lg-page-intro">
+            <h1 class="lg-page-title">Access Your Dashboard</h1>
+            <p class="lg-page-desc">Authenticate securely to manage your enterprise IT services, assets, and operational pipelines.</p>
+        </div>
+
+        <div class="lg-container">
+
+            <!-- Left Column: Branding -->
+            <div class="lg-left">
+                <a href="../index.html" class="lg-logo-link">
+                    <img src="../assets/Home/Header/logo.webp" alt="Stackly Logo" class="lg-logo">
+                </a>
+                <div class="lg-left-content">
+                    <h3>Enterprise Access Portal</h3>
+                    <p>Sign in to manage your IT infrastructure, monitor real-time security dashboards, and collaborate with your team across our global platform.</p>
+                </div>
+            </div>
+
+            <!-- Vertical Separator -->
+            <div class="lg-divider">
+                <div class="lg-divider-line"></div>
+            </div>
+
+            <!-- Right Column: Form -->
+            <div class="lg-right">
+                <div class="lg-right-header">
+                    <h2>Sign In</h2>
+                    <p>Select your role and enter your credentials below.</p>
+                </div>
+
+                <form id="loginForm" class="lg-form" novalidate>
+
+                    <div class="lg-form-group">
+                        <label for="lgRole">Account Role</label>
+                        <div class="lg-select-wrap">
+                            <select id="lgRole" class="lg-form-control lg-input-border" required autocomplete="off">
+                                <option value="" disabled selected>Select your role...</option>
+                                <option value="administrator">Administrator</option>
+                                <option value="client">Client</option>
+                            </select>
+                            <i class="fas fa-chevron-down lg-select-icon"></i>
+                        </div>
+                        <div class="lg-error" id="errRole">Please select your account role.</div>
+                    </div>
+
+                    <div class="lg-form-group">
+                        <label for="lgEmail">Email Address</label>
+                        <input type="email" id="lgEmail" class="lg-form-control lg-input-border" placeholder="you@company.com" required autocomplete="email">
+                        <div class="lg-error" id="errEmail">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="lg-form-group">
+                        <label for="lgPassword">Password</label>
+                        <div class="lg-pwd-wrap">
+                            <input type="password" id="lgPassword" class="lg-form-control lg-input-border" placeholder="Enter your password" required autocomplete="current-password">
+                            <button type="button" class="lg-eye-btn" id="lgEyePass" aria-label="Toggle password visibility"><i class="fas fa-eye"></i></button>
+                        </div>
+                        <div class="lg-error" id="errPassword">Password cannot be empty.</div>
+                    </div>
+
+                    <div class="lg-form-row-split">
+                        <!-- Remember Me -->
+                        <div class="lg-remember-wrap">
+                            <input type="radio" id="lgRemember" name="rememberGroup" value="yes" class="lg-real-radio" autocomplete="off">
+                            <label for="lgRemember" class="lg-radio-label" aria-hidden="true">
+                                <span class="lg-custom-radio" id="lgCustomRadio"></span>
+                            </label>
+                            <span class="lg-remember-text">Remember me</span>
+                        </div>
+
+                        <!-- Forgot Password -->
+                        <a href="./error.html" class="lg-forgot-link">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="lg-submit-btn">Sign In <i class="fas fa-arrow-right"></i></button>
+
+                    <p class="lg-signup-link">Don't have an account? <a href="./signup.html">Sign up</a></p>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Loader
+            const loader = document.getElementById('loader');
+            if (loader) { setTimeout(() => loader.classList.add('hidden'), 300); }
+            window.addEventListener('pageshow', (e) => { if (e.persisted && loader) loader.classList.add('hidden'); });
+            window.addEventListener('beforeunload', () => { if (loader) loader.classList.remove('hidden'); });
+
+            document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', () => {
+                    const href = link.getAttribute('href');
+                    if (href && !href.startsWith('#') && !href.startsWith('javascript:')) {
+                        if (loader) loader.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Theme Toggle
+            const themeBtn = document.querySelector('.theme-switch');
+            const htmlEl = document.documentElement;
+            function updateIcons(theme) {
+                if (themeBtn) themeBtn.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            }
+            updateIcons(htmlEl.getAttribute('data-theme'));
+            if (themeBtn) {
+                themeBtn.addEventListener('click', () => {
+                    const next = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                    htmlEl.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                    updateIcons(next);
+                });
+            }
+
+            // Scroll To Top
+            const scrollBtn = document.getElementById('scrollToTopBtn');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) scrollBtn.classList.add('visible');
+                else scrollBtn.classList.remove('visible');
+            });
+            scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+            // Fade Animations
+            document.querySelectorAll('.fade-element').forEach(el => {
+                const ob = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+                    });
+                }, { rootMargin: '0px 0px -100px 0px' });
+                ob.observe(el);
+            });
+
+            // Password Eye Toggle
+            const lgPassword = document.getElementById('lgPassword');
+            const lgEyePass = document.getElementById('lgEyePass');
+            lgEyePass.addEventListener('click', () => {
+                const type = lgPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+                lgPassword.setAttribute('type', type);
+                lgEyePass.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+            });
+
+            // Custom Radio Toggle (Remember Me)
+            const lgCustomRadio = document.getElementById('lgCustomRadio');
+            const lgRememberInput = document.getElementById('lgRemember');
+            document.querySelector('.lg-radio-label').addEventListener('click', () => {
+                setTimeout(() => {
+                    if (lgRememberInput.checked) lgCustomRadio.classList.add('lg-radio-checked');
+                    else lgCustomRadio.classList.remove('lg-radio-checked');
+                }, 10);
+            });
+
+            // Dark Theme Select Options
+            const lgRole = document.getElementById('lgRole');
+
+            // Form Validation & Submission
+            const loginForm = document.getElementById('loginForm');
+            const lgEmail = document.getElementById('lgEmail');
+
+            if (loginForm) {
+                loginForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    // Role
+                    if (!lgRole.value) {
+                        document.getElementById('errRole').style.display = 'block';
+                        isValid = false;
+                    } else {
+                        document.getElementById('errRole').style.display = 'none';
+                    }
+
+                    // Email
+                    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!lgEmail.value.trim() || !emailRe.test(lgEmail.value)) {
+                        document.getElementById('errEmail').style.display = 'block';
+                        lgEmail.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        document.getElementById('errEmail').style.display = 'none';
+                        lgEmail.style.borderColor = 'transparent';
+                    }
+
+                    // Password
+                    const lgPasswordInput = document.getElementById('lgPassword');
+                    if (!lgPasswordInput.value.trim()) {
+                        document.getElementById('errPassword').style.display = 'block';
+                        lgPasswordInput.style.borderColor = '#ef4444';
+                        isValid = false;
+                    } else {
+                        document.getElementById('errPassword').style.display = 'none';
+                        lgPasswordInput.style.borderColor = 'transparent';
+                    }
+
+                    if (isValid) {
+                        // Store the email in localStorage so the dashboard can use it
+                        localStorage.setItem('userEmail', lgEmail.value.trim());
+                        localStorage.setItem('userRole', lgRole.value);
+
+                        // Store remember preference
+                        if (lgRememberInput.checked) {
+                            localStorage.setItem('rememberEmail', lgEmail.value.trim());
+                        }
+
+                        if (loader) loader.classList.remove('hidden');
+
+                        const destination = lgRole.value === 'administrator'
+                            ? './adminDashboard.html'
+                            : './clientDashboard.html';
+
+                        setTimeout(() => { window.location.href = destination; }, 500);
+                    }
+                });
+            }
+
+            // Pre-fill remembered email on load
+            const rememberedEmail = localStorage.getItem('rememberEmail');
+            if (rememberedEmail) {
+                document.getElementById('lgEmail').value = rememberedEmail;
+                lgCustomRadio.classList.add('lg-radio-checked');
+                lgRememberInput.checked = true;
+            }
+
+        });
+    </script>
+</body>
+</html>
