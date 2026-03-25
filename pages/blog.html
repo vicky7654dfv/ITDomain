@@ -462,7 +462,25 @@
             // Loader
             const loader = document.getElementById('loader');
             if (loader) { setTimeout(() => loader.classList.add('hidden'), 300); }
-            window.addEventListener('pageshow', (e) => { if (e.persisted && loader) loader.classList.add('hidden'); });
+            window.addEventListener('pageshow', (e) => {
+                if (e.persisted && loader) loader.classList.add('hidden');
+                const t = localStorage.getItem('theme');
+                const htmlElem = document.documentElement;
+                if (t && htmlElem) {
+                    htmlElem.setAttribute('data-theme', t);
+                    if (typeof updateIcons === 'function') updateIcons(t);
+                }
+            });
+
+            window.addEventListener('storage', (e) => {
+                if (e.key === 'theme') {
+                    const htmlElem = document.documentElement;
+                    if (htmlElem) {
+                        htmlElem.setAttribute('data-theme', e.newValue);
+                        if (typeof updateIcons === 'function') updateIcons(e.newValue);
+                    }
+                }
+            });
             window.addEventListener('beforeunload', () => { if (loader) loader.classList.remove('hidden'); });
             document.querySelectorAll('a[href]:not([target="_blank"])').forEach(link => {
                 link.addEventListener('click', () => {

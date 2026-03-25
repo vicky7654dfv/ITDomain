@@ -430,6 +430,20 @@
                 loader.classList.add('fade-out');
                 loader.setAttribute('aria-hidden', 'true');
             }
+            const t = localStorage.getItem('theme');
+            if (t) {
+                document.documentElement.setAttribute('data-theme', t);
+                if (typeof updateThemeIcon === 'function') updateThemeIcon();
+                if (typeof updateChartColors === 'function') updateChartColors();
+            }
+        });
+
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'theme') {
+                document.documentElement.setAttribute('data-theme', e.newValue);
+                if (typeof updateThemeIcon === 'function') updateThemeIcon();
+                if (typeof updateChartColors === 'function') updateChartColors();
+            }
         });
 
         // Theme Toggle
